@@ -13,8 +13,8 @@ try:
     start = time.time()
     cursor.execute(query)
     result = cursor.fetchall()
-    print("Result : ",result[0][0])
     end = time.time()
+    print("Result : ",result[0][0])
     print("Time: ",(end-start)*1000, "ms")
 
 except Exception as e:
