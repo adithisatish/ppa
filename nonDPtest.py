@@ -2,20 +2,42 @@ import psycopg2 as pg
 import time
 import sys
 import pandas as pd
+import math
+import numpy as np
+import matplotlib.pyplot as plt
 
 try:
 #connections to the database
-    connection = pg.connect(user = 'postgres', password = "dbmssem4", host = "127.0.0.1",port = "5432",database = "uber") ##IMPORTANT: change password to 'password' before running in the lab system
+    connection = pg.connect(user = 'postgres', password = "password", host = "127.0.0.1",port = "5432",database = "uber")
     cursor = connection.cursor()
-    #sample query
-    query = "SELECT AVG(total_distance) FROM completeride"
+
+    #test queries
+    query = ["SELECT AVG(total_distance) FROM completeride", "SELECT COUNT(*) FROM passenger","SELECT AVG(working_hours) FROM DRIVER"]
+
+    test = {'query':[],'time_taken':[]} 
+
     #time
-    start = time.time()
-    cursor.execute(query)
-    result = cursor.fetchall()
-    end = time.time()
-    print("Result : ",result[0][0])
-    print("Time: ",(end-start)*1000, "ms")
+
+    for i in query:
+        testing_time = []
+        
+        for j in range(10):
+            start = time.time()
+            cursor.execute(query[0])
+            result = cursor.fetchall()
+            end = time.time()
+            exec_time = (end - start)*1000
+            testing_time.append(exec_time)
+
+        #func = i.split("(")[0][7:]
+        test['query'].append(i)
+        test['time_taken'].append(np.mean(testing_time))
+
+    #print(test)
+    df = pd.DataFrame(test)
+    print(df.head())
+
+
 
 except Exception as e:
-    print("Unable to connect to PostgreSQL server {e}")
+    print("Unable to connect to PostgreSQL server: ",e)
