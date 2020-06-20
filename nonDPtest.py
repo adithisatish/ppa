@@ -14,16 +14,16 @@ try:
     #test queries
     query = ["SELECT AVG(total_distance) FROM completeride", "SELECT COUNT(*) FROM passenger","SELECT AVG(working_hours) FROM DRIVER"]
 
-    test = {'query':[],'time_taken':[]} 
+    test = {'query':[],'result': [],'time_taken':[]} 
 
     #time
 
     for i in query:
         testing_time = []
-        
+        result = 0
         for j in range(10):
             start = time.time()
-            cursor.execute(query[0])
+            cursor.execute(i)
             result = cursor.fetchall()
             end = time.time()
             exec_time = (end - start)*1000
@@ -31,6 +31,7 @@ try:
 
         #func = i.split("(")[0][7:]
         test['query'].append(i)
+        test['result'].append(result[0][0])
         test['time_taken'].append(np.mean(testing_time))
 
     #print(test)
