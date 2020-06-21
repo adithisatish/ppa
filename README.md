@@ -20,6 +20,7 @@ Evaluation of Google's differential privacy tool, along with the modifications m
     Note: Fast and stable internet is absolutely necessary in order to build the tool successfully. 
 
 -> Modifications made include:
+
     - Conversion of normal SQL queries to the intrinsically private queries that the tool requires
     
     - Improvement in performance overhead using a different mechanism to calculate lower and upper bounds.
