@@ -12,13 +12,14 @@ try:
     cursor = connection.cursor()
 
     #test queries
-    query = ["SELECT AVG(total_distance) FROM completeride", "SELECT COUNT(*) FROM passenger","SELECT AVG(working_hours) FROM DRIVER"]
-
+    #query = ["SELECT AVG(total_distance) FROM completeride", "SELECT COUNT(*) FROM passenger","SELECT AVG(working_hours) FROM DRIVER"]
+    file = open("queries.txt",'r')
+    queries = file.readlines()
     test = {'query':[],'result': [],'time_taken':[]} 
 
     #time
 
-    for i in query:
+    for i in queries:
         testing_time = []
         result = 0
         for j in range(10):
@@ -37,6 +38,8 @@ try:
     #print(test)
     df = pd.DataFrame(test)
     print(df.head())
+
+    file.close()
 
 
 
