@@ -3,7 +3,7 @@ SELECT * FROM car WHERE purchase_date > '2009-12-31' AND purchase_date< '2011-01
 SELECT COUNT(*) FROM currride WHERE NOT EXISTS (SELECT passenger_id FROM requests);
 SELECT avg_ratings, COUNT(*) FROM driver GROUP BY avg_ratings ORDER BY avg_ratings DESC;
 SELECT COUNT(pickup_location), pickup_location  FROM completeride GROUP BY pickup_location ORDER BY COUNT(pickup_location) DESC;
-SELECT count(driver_id), driver_id FROMcompleteride GROUP BY driver_id ORDER BY COUNT(driver_id) DESC;
+SELECT count(driver_id), driver_id FROM completeride GROUP BY driver_id ORDER BY COUNT(driver_id) DESC;
 SELECT * FROM completeride AS cr INNER JOIN (SELECT driver_id, COUNT(driver_id) FROM completeride GROUP BY driver_id ORDER BY COUNT(driver_id) DESC LIMIT 1) AS mdr  ON c.driver_id = mdr.driver_id;
 SELECT mdr.driver_id, mdr.sum_d FROM(SELECT driver_id,SUM(total_distance) AS sum_d FROM completeride GROUP BY driver_id ORDER BY SUM(total_distance)DESC) AS mdr  WHERE mdr.sum_d>175;
 SELECT D.fname, D.lname, D.avg_ratings FROM driver as D INNER JOIN (SELECT driver_id, COUNT(driver_id) FROM completeride GROUP BY driver_id ORDER BY COUNT(driver_id) DESC LIMIT 1) AS mdr  ON D.driver_id = mdr.driver_id;
