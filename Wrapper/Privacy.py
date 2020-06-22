@@ -21,7 +21,7 @@ try:
 
     record = cursor.fetchone()
     print("Normal\n-----------\nQuery: ",query)
-    print("Result : ",record)
+    print("Result : ",record[0])
     print("----------\nExecution Time : ",(end_time-start_time)*1000)
     print("----------------\n\n")
     '''start_time = time.time()
@@ -53,7 +53,7 @@ try:
 
     record = cursor.fetchone()
     print("Bounded\n-----------\nTransformed Query: ",tquery)
-    print("Result : ",record)
+    print("Result : ",record[0])
     print("----------\nExecution Time : ",(end_time-start_time)*1000)
     print("----------------\n\n")
     '''start_time = time.time()
@@ -87,7 +87,7 @@ try:
 
     record = cursor.fetchone()
     print("Fast Bounded\n-----------\nTransformed Query: ",tquery)
-    print("Result : ",record)
+    print("Result : ",record[0])
     print("----------\nExecution Time : ",(end_time-start_time)*1000)
     print("----------------\n\n")
     '''print(tquery)
