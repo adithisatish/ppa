@@ -1,4 +1,3 @@
-import psycopg2
 import sys
 import time
 import display
@@ -9,7 +8,7 @@ import pandas.io.sql as psql
 
 try:
     # Setup Connections
-    connection = psycopg2.connect(user = "postgres",password = "getup",host = "127.0.0.1",port = "5432",database = str(sys.argv[1]))
+    connection = pg.connect(user = "postgres",password = "getup",host = "127.0.0.1",port = "5432",database = str(sys.argv[1]))
     cursor = connection.cursor()
     query= sys.argv[2].lower()
     
@@ -17,6 +16,15 @@ try:
     
     # Normal Query 
     start_time = time.time()
+    cursor.execute(query)
+    end_time = time.time()
+
+    record = cursor.fetchone()
+    print("Normal\n-----------\nQuery: ",query)
+    print("Result : ",record)
+    print("----------\nExecution Time : ",(end_time-start_time)*1000)
+    print("----------------\n\n")
+    '''start_time = time.time()
     cursor=pd.read_sql_query(query,connection)
     cursor= psql.read_sql(query, connection)
     end_time = time.time()
@@ -35,11 +43,20 @@ try:
         print("\n")    
     #record = cursor.fetchone()
     #display.log("Normal",end_time-start_time,dtype,record)
-    #display.log("Normal",end_time-start_time,dtype,cursor)
+    #display.log("Normal",end_time-start_time,dtype,cursor)'''
 
     # Differential Privacy with bounds
     tquery=transform.bounded(query,dtype)
     start_time = time.time()
+    cursor.execute(tquery)
+    end_time = time.time()
+
+    record = cursor.fetchone()
+    print("Bounded\n-----------\nTransformed Query: ",tquery)
+    print("Result : ",record)
+    print("----------\nExecution Time : ",(end_time-start_time)*1000)
+    print("----------------\n\n")
+    '''start_time = time.time()
     #cursor.execute(tquery)
     cursor=pd.read_sql_query(tquery,connection)
     display.log("Bounded",dtype,cursor)
@@ -60,11 +77,20 @@ try:
             print(i[j],end=" ")
             j=j+1
         print("\n")
-    #display.log("Bounded",end_time-start_time,dtype,cursor)
+    #display.log("Bounded",end_time-start_time,dtype,cursor)'''
     
     # Differential Privacy with fastbounds
     tquery=transform.fastbounded(query,dtype)
-    print(tquery)
+    start_time = time.time()
+    cursor.execute(tquery)
+    end_time = time.time()
+
+    record = cursor.fetchone()
+    print("Fast Bounded\n-----------\nTransformed Query: ",tquery)
+    print("Result : ",record)
+    print("----------\nExecution Time : ",(end_time-start_time)*1000)
+    print("----------------\n\n")
+    '''print(tquery)
     start_time = time.time()
     #cursor.execute(tquery)
     cursor=pd.read_sql_query(tquery,connection)
@@ -86,7 +112,7 @@ try:
             j=j+1
         print("\n")
     #display.log("FastBounded",end_time-start_time,dtype,record)
-    #display.log("FastBounded",end_time-start_time,dtype,cursor)
+    #display.log("FastBounded",end_time-start_time,dtype,cursor)'''
     
 except (Exception, psycopg2.Error) as error :
     print ("Error while connecting to PostgreSQL", error)
