@@ -22,8 +22,8 @@ try:
     end_time = time.time()
     l=len(cursor.columns)
     a=cursor[cursor.columns[0:l]].values.tolist()
-    for col in cursor.columns:
-        print(col,end=" ")
+    #for col in cursor.columns:
+        #print(col,end=" ")
     n=len(a)
     print("\n")
     for i in a:
