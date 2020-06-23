@@ -39,8 +39,8 @@ def winsorized(query,dtype):
 		att = lst[1].split(")")
 		table = att[1].split("from ")[1]
 
-		lowerbound = "select percentile_cont(0.25) within group(order by " + att[0] + ") from " + table
-		upperbound = "select percentile_cont(0.75) within group(order by " + att[0] + ") from " + table
+		lowerbound = "select percentile_cont(0.2) within group(order by " + att[0] + ") from " + table
+		upperbound = "select percentile_cont(0.8) within group(order by " + att[0] + ") from " + table
 
 		tquery = lst[0] + "anon_" + dtype + "_with_bounds(" + att[0] + ",(" + lowerbound + "),(" + upperbound + ")) from " + table
 		return tquery
