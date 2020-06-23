@@ -113,6 +113,18 @@ try:
         print("\n")
     #display.log("FastBounded",end_time-start_time,dtype,record)
     #display.log("FastBounded",end_time-start_time,dtype,cursor)'''
+
+    # Differential Privacy with winsorized bounds
+    tquery=transform.winsorized(query,dtype)
+    start_time = time.time()
+    cursor.execute(tquery)
+    end_time = time.time()
+
+    record = cursor.fetchone()
+    print("Fast Bounded\n-----------\nTransformed Query: ",tquery)
+    print("Result : ",record[0])
+    print("----------\nExecution Time : ",(end_time-start_time)*1000,"ms")
+    print("----------------\n\n")
     
 except (Exception, psycopg2.Error) as error :
     print ("Error while connecting to PostgreSQL", error)

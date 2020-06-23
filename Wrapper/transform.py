@@ -29,3 +29,20 @@ def fastbounded(query,dtype):
 		tquery=lst[0]+"anon_"+dtype+"_with_bounds("+lst2[0]+",("+minquery+"),("+maxquery+"))"+lst2[1]
 		return tquery
 	return query
+
+def winsorized(query,dtype):
+	if(dtype != "default"):
+		lst=query.split(dtype+"(")
+		if dtype=="count":
+			return lst[0]+"anon_"+dtype+"("+lst[1]
+
+		att = lst[1].split(")")
+		table = att[1].split("from ")[1]
+
+		lowerbound = "select percentile_cont(0.25) within group(order by " + att[0] + ") from " + table
+		upperbound = "select percentile_cont(0.75) within group(order by " + att[0] + ") from " + table
+
+		tquery = lst[0] + "anon_" + dtype + "_with_bounds(" + att[0] + ",(" + lowerbound + "),(" + upperbound + ")) from " + table
+		return tquery
+
+	return query
