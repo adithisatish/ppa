@@ -121,7 +121,7 @@ try:
     end_time = time.time()
 
     record = cursor.fetchone()
-    print("Widened Winsorized Bounds\n-----------\nTransformed Query: ",tquery)
+    print("Winsorized Bounds\n-----------\nTransformed Query: ",tquery)
     print("Result : ",record[0])
     print("----------\nExecution Time : ",(end_time-start_time)*1000,"ms")
     print("----------------\n\n")
