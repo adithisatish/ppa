@@ -1,4 +1,4 @@
-# Wrapper for Modifications 
+# Wrapper
 
 The wrapper is written to make modifications to Google's differential privacy tool in order to improve performance overhead and simultaneously also try to obtain more accurate results.
 
