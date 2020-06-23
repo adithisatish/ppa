@@ -37,7 +37,7 @@ try:
 
     #print(test)
     df = pd.DataFrame(test)
-    print(df.head(10))
+    print(df.head(55))
 
     file.close()
 
