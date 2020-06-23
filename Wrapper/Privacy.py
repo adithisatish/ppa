@@ -20,7 +20,7 @@ try:
     end_time = time.time()
 
     record = cursor.fetchone()
-    print("Normal\n-----------\nQuery: ",query)
+    print("Normal\n-----------\n")
     print("Result : ",record[0])
     print("----------\nExecution Time : ",(end_time-start_time)*1000,"ms")
     print("----------------\n\n")
@@ -52,7 +52,7 @@ try:
     end_time = time.time()
 
     record = cursor.fetchone()
-    print("Bounded\n-----------\nTransformed Query: ",tquery)
+    print("Bounded\n-----------\n")
     print("Result : ",record[0])
     print("----------\nExecution Time : ",(end_time-start_time)*1000,"ms")
     print("----------------\n\n")
@@ -86,7 +86,7 @@ try:
     end_time = time.time()
 
     record = cursor.fetchone()
-    print("Fast Bounded\n-----------\nTransformed Query: ",tquery)
+    print("Fast Bounded\n-----------\n")
     print("Result : ",record[0])
     print("----------\nExecution Time : ",(end_time-start_time)*1000,"ms")
     print("----------------\n\n")
@@ -121,7 +121,7 @@ try:
     end_time = time.time()
 
     record = cursor.fetchone()
-    print("Widened Winsorized Bounds\n-----------\nTransformed Query: ",tquery)
+    print("Widened Winsorized Bounds\n-----------\n")
     print("Result : ",record[0])
     print("----------\nExecution Time : ",(end_time-start_time)*1000,"ms")
     print("----------------\n\n")
