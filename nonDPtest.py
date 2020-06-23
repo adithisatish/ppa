@@ -22,7 +22,7 @@ try:
     for i in queries:
         testing_time = []
         result = 0
-        for j in range(10):
+        for j in range(56):
             start = time.time()
             cursor.execute(i)
             result = cursor.fetchall()
