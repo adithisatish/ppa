@@ -83,7 +83,4 @@ df_winsorized = pd.DataFrame(win)
 print("\nWIDENED WINSORIZED\n",df_winsorized.head(10))
 print("\n-------------------------------------------------\n")
 
-
-
-
 file.close()
