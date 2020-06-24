@@ -8,6 +8,13 @@ import os
 import pandas as pd 
 import numpy as np
 
+def isstr(s):
+    try:
+        s.lower()
+        return True
+    except:
+        return False
+
 def exec_query(query,mode):
     time = []
     result = []
@@ -19,7 +26,7 @@ def exec_query(query,mode):
     avg_time = sum(time)/56
     if None in result:
         avg_result = None
-    elif type(result) == type("hello"):
+    elif isstr(result[0]):
         avg_result = None
     else:
         avg_result = sum(result)/56
