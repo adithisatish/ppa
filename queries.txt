@@ -5,7 +5,7 @@ SELECT COUNT(*) FROM driver;
 SELECT SUM(price) FROM completeride;
 SELECT lisence_plate FROM car WHERE(model_id IN (SELECT model_id FROM size_x WHERE model_name = 'Maruti Suzuki Swift'));
 SELECT * FROM passenger WHERE (passenger_id IN ( SELECT passenger_id FROM requests WHERE pickup_location LIKE '%South Bronx%' AND request_time >  '2020-01-01 18:00:00+05:30' AND request_time < '2020-12-31 20:00:00+05:30'));
-SELECT mdr.sum_d, mdr.driver_id FROM(SELECT driver_id,SUM(total_distance) AS sum_d FROM completeride GROUP BY driver_id ORDER BY SUM(total_distance)DESC) AS mdr  WHERE mdr.sum_d>175;
+SELECT mdr.driver_id, mdr.sum_d FROM(SELECT driver_id,SUM(total_distance) AS sum_d FROM completeride GROUP BY driver_id ORDER BY SUM(total_distance)DESC) AS mdr  WHERE mdr.sum_d>175;
 SELECT model_name FROM size_x JOIN (SELECT model_id FROM car JOIN (SELECT lisence_plate FROM driver JOIN (SELECT driver_id FROM completeride GROUP BY driver_id ORDER BY COUNT(driver_id) DESC LIMIT 1) AS m_cr ON driver.driver_id = m_cr.driver_id) AS m_d ON car.lisence_plate=m_d.lisence_plate) AS m_c ON size_x.model_id=m_c.model_id;
 SELECT fname, lname FROM passenger JOIN (SELECT passenger_id FROM (SELECT passenger_id, sum(price) as sum_p from completeride group by passenger_id order by sum(price) desc ) AS s_p JOIN (SELECT MAX(sum_p) as max_p FROM (SELECT passenger_id, sum(price) as sum_p from completeride group by passenger_id order by sum(price) desc ) AS m) AS m_pr ON s_p.sum_p = m_pr.max_p) AS p_id ON passenger.passenger_id=p_id.passenger_id;
 SELECT COUNT(*) FROM car WHERE(model_id IN (SELECT model_id FROM size_x WHERE model_name = 'Maruti Suzuki Swift')) AND purchase_date > '2009-12-31' AND purchase_date < '2011-01-01';
