@@ -16,13 +16,13 @@ def exec_query(query,mode):
         time.append(val[1])
         result.append(val[0])
     
-    avg_time = np.mean(time)
+    avg_time = sum(time)/56
     if None in result:
         avg_result = None
     elif type(result) == type("hello"):
         avg_result = None
     else:
-        avg_result = np.mean(result)
+        avg_result = sum(result)/56
     
     return [avg_result,avg_time]
 
