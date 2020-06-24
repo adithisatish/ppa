@@ -66,3 +66,4 @@ def privacy(db_name,query,mode):
                 connection.close()
 
 
+privacy("uber","select avg(total_distance) from completeride","winsorized")
