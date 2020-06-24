@@ -1,6 +1,12 @@
 import Privacy
+import display
+import transform
+import psycopg2 as pg
+import time
+import sys
 import os
 
-path = os.getcwd().split("/") #change to "/" in Linux
-del(path[-1])
-print("/".join(path) + "/queries.txt")
+cwd = os.getcwd().split("/") #change to "/" in Linux
+del(cwd[-1])
+file_path = "/".join(cwd) + "/queries.txt"
+
