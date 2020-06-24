@@ -22,7 +22,7 @@ def privacy(db_name,query,mode):
 
             record = cursor.fetchone()
             normal_time = (end_time-start_time)*1000
-            return [record,normal_time]
+            return [record[0],normal_time]
 
         elif mode == 'bounded':# Differential Privacy with bounds
             tquery=transform.bounded(query,dtype)
@@ -32,7 +32,7 @@ def privacy(db_name,query,mode):
 
             record = cursor.fetchone()
             bounded_time = (end_time-start_time)*1000
-            return [record, bounded_time]
+            return [record[0], bounded_time]
         
         elif mode == "fastbounded":# Differential Privacy with fastbounds
             tquery=transform.fastbounded(query,dtype)
@@ -42,7 +42,7 @@ def privacy(db_name,query,mode):
 
             record = cursor.fetchone()
             fastbounded_time = (end_time-start_time)*1000
-            return [record,fastbounded_time]
+            return [record[0],fastbounded_time]
 
         elif mode=='winsorized':# Differential Privacy with winsorized bounds
             tquery=transform.winsorized(query,dtype)
@@ -52,7 +52,7 @@ def privacy(db_name,query,mode):
 
             record = cursor.fetchone()
             winsorized_time = (end_time-start_time)*1000
-            return [record,winsorized_time]
+            return [record[0],winsorized_time]
         
         #return [normal_time,bounded_time,fastbounded_time,winsorized_time]
 
