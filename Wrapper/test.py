@@ -19,6 +19,8 @@ def exec_query(query,mode):
     avg_time = np.mean(time)
     if None in result:
         avg_result = None
+    elif type(result) == type("hello"):
+        avg_result = None
     else:
         avg_result = np.mean(result)
     
