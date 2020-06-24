@@ -22,7 +22,8 @@ try:
     record = cursor.fetchone()
     print("Normal\n-----------\n")
     print("Result : ",record[0])
-    print("----------\nExecution Time : ",(end_time-start_time)*1000,"ms")
+    normal_time = (end_time-start_time)*1000
+    print("----------\nExecution Time : ",normal_time,"ms")
     print("----------------\n\n")
     '''start_time = time.time()
     cursor=pd.read_sql_query(query,connection)
@@ -54,7 +55,8 @@ try:
     record = cursor.fetchone()
     print("Bounded\n-----------\n")
     print("Result : ",record[0])
-    print("----------\nExecution Time : ",(end_time-start_time)*1000,"ms")
+    bounded_time = (end_time-start_time)*1000
+    print("----------\nExecution Time : ",bounded_time,"ms")
     print("----------------\n\n")
     '''start_time = time.time()
     #cursor.execute(tquery)
@@ -88,7 +90,8 @@ try:
     record = cursor.fetchone()
     print("Fast Bounded\n-----------\n")
     print("Result : ",record[0])
-    print("----------\nExecution Time : ",(end_time-start_time)*1000,"ms")
+    fastbounded_time = (end_time-start_time)*1000
+    print("----------\nExecution Time : ",fastbounded_time,"ms")
     print("----------------\n\n")
     '''print(tquery)
     start_time = time.time()
@@ -123,7 +126,8 @@ try:
     record = cursor.fetchone()
     print("Widened Winsorized Bounds\n-----------\n")
     print("Result : ",record[0])
-    print("----------\nExecution Time : ",(end_time-start_time)*1000,"ms")
+    winsorized_time = (end_time-start_time)*1000
+    print("----------\nExecution Time : ",winsorized_time,"ms")
     print("----------------\n\n")
     
 except (Exception, psycopg2.Error) as error :
