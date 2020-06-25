@@ -24,7 +24,7 @@ try:
         result = 0
         for j in range(10):
             start = time.time()
-            cursor.execute(i)
+            cursor.execute(i + ";")
             result = cursor.fetchall()
             end = time.time()
             exec_time = (end - start)*1000
