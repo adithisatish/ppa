@@ -1,0 +1,15 @@
+SELECT COUNT(model_id) FROM car WHERE(model_id IN (SELECT model_id FROM size_x WHERE model_name = 'Maruti Suzuki Swift')) AND purchase_date > '2009-12-31' AND purchase_date < '2011-01-01'
+SELECT COUNT(driver_id) FROM driver WHERE(lisence_plate IN (SELECT lisence_plate FROM car WHERE curr_condition >= 5)) AND avg_ratings <=3
+SELECT COUNT(card_num) FROM card_ WHERE (card_num IN (SELECT card_num FROM passenger WHERE fname LIKE '%a%')) AND exp_date > '2020-01-01' AND exp_date < '2021-01-01'
+SELECT COUNT(driver_id) FROM DRIVER WHERE (driver_id IN (SELECT driver_id FROM completeride WHERE price > 50)) AND avg_ratings > 4
+SELECT COUNT(model_id) FROM car WHERE(model_id IN (SELECT model_id FROM size_x WHERE model_name = 'Maruti Suzuki Swift')) AND curr_condition > 5
+SELECT COUNT(driver_id) FROM driver WHERE (lisence_plate IN (SELECT lisence_plate FROM car WHERE(model_id IN (SELECT model_id FROM size_x WHERE model_name = 'Mercedes E-class')))) AND avg_ratings = 5
+SELECT COUNT(driver_id) FROM driver WHERE(lisence_plate IN (SELECT lisence_plate FROM car WHERE(model_id IN (SELECT model_id FROM size_x WHERE model_year = 2001)))) AND working_hours <=3
+SELECT COUNT(driver_id) FROM completeride WHERE (driver_id IN (SELECT driver_id FROM driver WHERE (lisence_plate IN (SELECT lisence_plate FROM car WHERE model_ID = '3INOX77MLSV9766838')))) AND price > 40
+SELECT COUNT(driver_id) FROM driver WHERE (lisence_plate IN (SELECT lisence_plate FROM car WHERE(model_id IN (SELECT model_id FROM size_x WHERE model_name LIKE '%Toyota%')))) AND working_hours > 8
+SELECT COUNT(price) FROM (SELECT price FROM (SELECT price, total_distance FROM completeride WHERE pickup_location like '%Mott Haven%')AS n1 WHERE total_distance > 10) AS n2 WHERE price > 10
+SELECT COUNT(driver_id) FROM completeride WHERE (driver_id IN (SELECT driver_id FROM driver WHERE (lisence_plate IN ( SELECT lisence_plate FROM car WHERE (model_id IN (SELECT model_id FROM size_x WHERE model_name = 'Mercedes E-class')))))) AND price>60
+SELECT COUNT(driver_id) FROM completeride WHERE (driver_id IN (SELECT driver_id FROM driver WHERE (lisence_plate IN ( SELECT lisence_plate FROM car WHERE (model_id IN (SELECT model_id FROM size_x WHERE model_name LIKE '%Hyundai%')))))) AND pickup_location LIKE '%South Bronx%'
+SELECT COUNT(driver_id) FROM completeride WHERE (driver_id IN (SELECT driver_id FROM driver WHERE (lisence_plate IN ( SELECT lisence_plate FROM car WHERE (model_id IN (SELECT model_id FROM size_x WHERE model_year = 2010)))))) AND total_distance > 50
+SELECT COUNT(passenger_id) FROM passenger WHERE (passenger_id IN (SELECT passenger_id FROM completeride WHERE (driver_id IN ( SELECT driver_id FROM driver WHERE (lisence_plate IN (SELECT lisence_plate FROM car WHERE curr_condition = 4)))))) AND fname LIKE 'a%'
+SELECT COUNT(driver_id) FROM (SELECT driver_id, price FROM completeride WHERE (driver_id IN (SELECT driver_id FROM driver WHERE (lisence_plate IN ( SELECT lisence_plate FROM car WHERE (model_id IN (SELECT model_id FROM size_x WHERE model_year = 2010)))))) AND total_distance > 20)AS n1 WHERE price>60
