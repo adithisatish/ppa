@@ -22,7 +22,7 @@ try:
     for i in queries:
         testing_time = []
         result = 0
-        for j in range(56):
+        for j in range(49):
             start = time.time()
             cursor.execute(i)
             result = cursor.fetchall()
@@ -37,7 +37,7 @@ try:
 
     #print(test)
     df = pd.DataFrame(test)
-    print(df.head(55))
+    print(df.head(49))
 
     file.close()
 
