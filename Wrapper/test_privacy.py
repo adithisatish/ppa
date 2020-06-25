@@ -95,7 +95,7 @@ def exec_query(query,mode):
 
 cwd = os.getcwd().split("/") #change to "/" in Linux
 del(cwd[-1])
-file_path = "/".join(cwd) + "/queries.txt"
+file_path = "/".join(cwd) + "/" + sys.argv[1] + ".txt"
 
 file = open(file_path,'r')
 queries = file.readlines()
