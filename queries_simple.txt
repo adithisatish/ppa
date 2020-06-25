@@ -1,0 +1,5 @@
+SELECT model_id FROM car WHERE purchase_date > '2009-12-31' AND purchase_date < '2011-01-01'
+SELECT COUNT(lisence_plate) FROM car WHERE lisence_plate LIKE 'MDO%'
+SELECT COUNT(driver_id) FROM driver
+SELECT SUM(price) FROM completeride
+SELECT AVG(working_hours) FROM driver
