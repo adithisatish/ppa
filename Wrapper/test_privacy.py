@@ -86,7 +86,10 @@ def exec_query(query,mode):
     if None in result:
         avg_result = None
     elif isstr(result[0]):
-        avg_result = None
+        if mode!="normal":
+            avg_result = None
+        else:
+            avg_result = result[0]
     else:
         avg_result = sum(result)/10
     
