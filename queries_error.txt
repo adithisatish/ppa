@@ -4,4 +4,5 @@ SELECT AVG(price) FROM completeride JOIN (SELECT driver_id FROM driver JOIN (SEL
 SELECT MAX(avg) FROM (SELECT AVG(price) FROM completeride JOIN (SELECT driver_id FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_name='Maruti Suzuki Swift') AS n4 ON car.model_id=n4.model_id) AS n3 ON driver.lisence_plate=n3.lisence_plate) AS n2 ON completeride.driver_id=n2.driver_id GROUP BY completeride.driver_id) AS n1
 SELECT COUNT(car.model_id) FROM car JOIN (SELECT model_id FROM size_x WHERE model_name = 'Maruti Suzuki Swift') AS n1 ON car.model_id = n1.model_id AND purchase_date > '2009-12-31' AND purchase_date < '2011-01-01'
 SELECT COUNT(car.model_id) FROM car JOIN (SELECT model_id FROM size_x WHERE model_name = 'Maruti Suzuki Swift') AS n1 ON car.model_id = n1.model_id  AND curr_condition > 4
+SELECT AVG(working_hours) FROM driver JOIN (SELECT driver_id FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_name='Mercedes E-class')AS n3 ON car.model_id=n3.model_id)AS n2 ON driver.lisence_plate=n2.lisence_plate)AS n1 ON driver.driver_id=n1.driver_id
 
