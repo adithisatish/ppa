@@ -1,1 +1,3 @@
 SELECT SUM(num) FROM (SELECT model_name, COUNT(model_name) as num FROM size_x JOIN (SELECT model_id FROM car WHERE purchase_date > '2009-12-31' AND purchase_date < '2011-01-01') AS n1 ON size_x.model_id=n1.model_id GROUP BY model_name) AS n2 WHERE model_name LIKE 'Toyota%'
+SELECT AVG(price) FROM completeride JOIN (SELECT driver_id FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_name='Maruti Suzuki Swift') AS n3 ON car.model_id=n3.model_id) AS n2 ON driver.lisence_plate=n2.lisence_plate) AS n1 ON completeride.driver_id=n1.driver_id
+
