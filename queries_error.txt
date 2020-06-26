@@ -1,0 +1,1 @@
+SELECT SUM(num) FROM (SELECT model_name, COUNT(model_name) as num FROM size_x JOIN (SELECT model_id FROM car WHERE purchase_date > '2009-12-31' AND purchase_date < '2011-01-01') AS n1 ON size_x.model_id=n1.model_id GROUP BY model_name) AS n2 WHERE model_name LIKE 'Toyota%'
