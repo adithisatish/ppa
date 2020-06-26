@@ -30,6 +30,8 @@ def fastbounded(query,dtype):
 		return tquery
 	return query
 
+
+#Function which returns intrinsically private query with winsorized bounds
 def winsorized(query,dtype):
 	if(dtype != "default"):
 		lst=query.split(dtype+"(")

@@ -6,6 +6,13 @@ import psycopg2 as pg
 import pandas as pd
 import pandas.io.sql as psql
 
+def display_output(result):
+    #l = len(result)
+    for i in result:
+        for j in i:
+            print(j,sep = " | ")
+        print("\n",end = "")
+
 try:
     # Setup Connections
     connection = pg.connect(user = "postgres",password = "getup",host = "127.0.0.1",port = "5432",database = str(sys.argv[1]))
@@ -19,9 +26,10 @@ try:
     cursor.execute(query)
     end_time = time.time()
 
-    record = cursor.fetchone()
+    record = cursor.fetchall()
     print("Normal\n-----------\n")
-    print("Result : ",record[0])
+    print("Result : ")
+    display_output(record)
     normal_time = (end_time-start_time)*1000
     print("----------\nExecution Time : ",normal_time,"ms")
     print("----------------\n\n")
@@ -42,7 +50,7 @@ try:
             print(i[j],end=" ")
             j=j+1
         print("\n")    
-    #record = cursor.fetchone()
+    #record = cursor.fetchall()
     #display.log("Normal",end_time-start_time,dtype,record)
     #display.log("Normal",end_time-start_time,dtype,cursor)'''
 
@@ -52,9 +60,10 @@ try:
     cursor.execute(tquery)
     end_time = time.time()
 
-    record = cursor.fetchone()
+    record = cursor.fetchall()
     print("Bounded\n-----------\n")
-    print("Result : ",record[0])
+    print("Result : ")
+    display_output(record)
     bounded_time = (end_time-start_time)*1000
     print("----------\nExecution Time : ",bounded_time,"ms")
     print("----------------\n\n")
@@ -64,7 +73,7 @@ try:
     display.log("Bounded",dtype,cursor)
     cursor= psql.read_sql(tquery, connection,None)
     end_time = time.time()
-    #record = cursor.fetchone()
+    #record = cursor.fetchall()
     #display.log("Bounded",end_time-start_time,dtype,record)
     l=len(cursor.columns)
     a=cursor[cursor.columns[0:l]].values.tolist()
@@ -87,9 +96,10 @@ try:
     cursor.execute(tquery)
     end_time = time.time()
 
-    record = cursor.fetchone()
+    record = cursor.fetchall()
     print("Fast Bounded\n-----------\n")
-    print("Result : ",record[0])
+    print("Result : ")
+    display_output(record)
     fastbounded_time = (end_time-start_time)*1000
     print("----------\nExecution Time : ",fastbounded_time,"ms")
     print("----------------\n\n")
@@ -100,7 +110,7 @@ try:
     display.log("FastBounded",dtype,cursor)
     cursor= psql.read_sql(tquery, connection,None)
     end_time = time.time()
-    record = cursor.fetchone()
+    record = cursor.fetchall()
     l=len(cursor.columns)
     a=cursor[cursor.columns[0:l]].values.tolist()
     for col in cursor.columns:
@@ -123,9 +133,10 @@ try:
     cursor.execute(tquery)
     end_time = time.time()
 
-    record = cursor.fetchone()
+    record = cursor.fetchall()
     print("Widened Winsorized Bounds\n-----------\n")
-    print("Result : ",record[0])
+    print("Result : ")
+    display_output(record)
     winsorized_time = (end_time-start_time)*1000
     print("----------\nExecution Time : ",winsorized_time,"ms")
     print("----------------\n\n")
