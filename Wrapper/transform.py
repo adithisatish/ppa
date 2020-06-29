@@ -12,7 +12,10 @@ def find(query):
 #Function which returns transformed Bounded Query
 def bounded(query,dtype):
 	if(dtype != "default"):
-		lst=query.split(dtype+"(")
+		if dtype in query:
+			lst=query.split(dtype+"(")
+		else:
+			lst = query.split(dtype.upper()+"(")
 		tquery=lst[0]+"anon_"+dtype+"("+lst[1]
 		return tquery
 	return query
@@ -20,7 +23,10 @@ def bounded(query,dtype):
 #Function which returns transformed UnBounded Query
 def fastbounded(query,dtype):
 	if(dtype != "default"):
-		lst=query.split(dtype+"(")
+		if dtype in query:
+			lst=query.split(dtype+"(")
+		else:
+			lst = query.split(dtype.upper()+"(")
 		if dtype=="count":
 			return lst[0]+"anon_"+dtype+"("+lst[1]
 			 
@@ -35,8 +41,11 @@ def fastbounded(query,dtype):
 #Function which returns intrinsically private query with winsorized bounds
 def winsorized(query,dtype):
 	if(dtype != "default"):
-		lst=query.split(dtype+"(")
-		if dtype=="count":
+		if dtype in query:
+			lst=query.split(dtype+"(")
+		else:
+			lst = query.split(dtype.upper()+"(")
+		if dtype =="count":
 			return lst[0]+"anon_"+dtype+"("+lst[1]
 
 		att = lst[1].split(")")
