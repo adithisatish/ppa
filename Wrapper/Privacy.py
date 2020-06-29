@@ -17,7 +17,7 @@ try:
     # Setup Connections
     connection = pg.connect(user = "postgres",password = "getup",host = "127.0.0.1",port = "5432",database = str(sys.argv[1]))
     cursor = connection.cursor()
-    query= sys.argv[2].lower()
+    query= sys.argv[2] #.lower()
     
     dtype=transform.find(query)
     

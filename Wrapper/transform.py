@@ -1,7 +1,8 @@
 
 #Function to idetify type
 def find(query):
-	lst=query.split("from")[0]
+	q = query.lower()
+	lst=q.split("from")[0]
 	types=["count","sum","avg","var","stdev"]	
 	for i in types:
 		if (i+"(") in lst:
