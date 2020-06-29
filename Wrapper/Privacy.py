@@ -22,7 +22,7 @@ try:
     dtype=transform.find(query)
     
     # Normal Query 
-    '''start_time = time.time()
+    start_time = time.time()
     cursor.execute(query)
     end_time = time.time()
 
@@ -32,8 +32,8 @@ try:
     display_output(record)
     normal_time = (end_time-start_time)*1000
     print("----------\nExecution Time : ",normal_time,"ms")
-    print("----------------\n\n")'''
-    start_time = time.time()
+    print("----------------\n\n")
+    '''start_time = time.time()
     cursor=pd.read_sql_query(query,connection)
     cursor= psql.read_sql(query, connection)
     end_time = time.time()
@@ -56,21 +56,21 @@ try:
 
     # Differential Privacy with bounds
     tquery=transform.bounded(query,dtype)
-    '''start_time = time.time()
+    start_time = time.time()
     cursor.execute(tquery)
     end_time = time.time()
-
+    print(tquery)
     record = cursor.fetchall()
     print("Bounded\n-----------\n")
     print("Result : ")
     display_output(record)
     bounded_time = (end_time-start_time)*1000
     print("----------\nExecution Time : ",bounded_time,"ms")
-    print("----------------\n\n")'''
-    start_time = time.time()
+    print("----------------\n\n")
+    '''start_time = time.time()
     #cursor.execute(tquery)
     cursor=pd.read_sql_query(tquery,connection)
-    #display.log("Bounded",dtype,cursor)
+    display.log("Bounded",dtype,cursor)
     cursor= psql.read_sql(tquery, connection,None)
     end_time = time.time()
     #record = cursor.fetchall()
@@ -91,23 +91,23 @@ try:
     #display.log("Bounded",end_time-start_time,dtype,cursor)'''
     
     # Differential Privacy with fastbounds
-    '''tquery=transform.fastbounded(query,dtype)
+    tquery=transform.fastbounded(query,dtype)
     start_time = time.time()
     cursor.execute(tquery)
     end_time = time.time()
-
+    print(tquery)
     record = cursor.fetchall()
     print("Fast Bounded\n-----------\n")
     print("Result : ")
     display_output(record)
     fastbounded_time = (end_time-start_time)*1000
     print("----------\nExecution Time : ",fastbounded_time,"ms")
-    print("----------------\n\n")'''
-    #print(tquery)
+    print("----------------\n\n")
+    '''print(tquery)
     start_time = time.time()
     #cursor.execute(tquery)
     cursor=pd.read_sql_query(tquery,connection)
-    #display.log("FastBounded",dtype,cursor)
+    display.log("FastBounded",dtype,cursor)
     cursor= psql.read_sql(tquery, connection,None)
     end_time = time.time()
     record = cursor.fetchall()
@@ -128,18 +128,18 @@ try:
     #display.log("FastBounded",end_time-start_time,dtype,cursor)'''
 
     # Differential Privacy with winsorized bounds
-    '''tquery=transform.winsorized(query,dtype)
+    tquery=transform.winsorized(query,dtype)
     start_time = time.time()
     cursor.execute(tquery)
     end_time = time.time()
-
+    print(tquery)
     record = cursor.fetchall()
     print("Widened Winsorized Bounds\n-----------\n")
     print("Result : ")
     display_output(record)
     winsorized_time = (end_time-start_time)*1000
     print("----------\nExecution Time : ",winsorized_time,"ms")
-    print("----------------\n\n")'''
+    print("----------------\n\n")
     
 except (Exception, psycopg2.Error) as error :
     print ("Error while connecting to PostgreSQL", error)
