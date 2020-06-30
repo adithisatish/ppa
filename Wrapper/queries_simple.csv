@@ -1,0 +1,97 @@
+,query,query_id,result,exec_time,mode
+0,"SELECT model_id FROM car WHERE purchase_date > '2009-12-31' AND purchase_date < '2011-01-01'
+",0,2SPRC89NATN6217544,4.3305158615112305,normal
+1,"SELECT model_id FROM car WHERE purchase_date > '2009-12-31' AND purchase_date < '2011-01-01'
+",0,,4.214382171630859,bounded
+2,"SELECT model_id FROM car WHERE purchase_date > '2009-12-31' AND purchase_date < '2011-01-01'
+",0,,4.201006889343262,fastbounded
+3,"SELECT model_id FROM car WHERE purchase_date > '2009-12-31' AND purchase_date < '2011-01-01'
+",0,,4.2037248611450195,winsorized
+4,"SELECT COUNT(lisence_plate) FROM car WHERE lisence_plate LIKE 'MDO%'
+",1,6.0,3.882145881652832,normal
+5,"SELECT COUNT(lisence_plate) FROM car WHERE lisence_plate LIKE 'MDO%'
+",1,5.9,12.654495239257812,bounded
+6,"SELECT COUNT(lisence_plate) FROM car WHERE lisence_plate LIKE 'MDO%'
+",1,5.9,12.95478343963623,fastbounded
+7,"SELECT COUNT(lisence_plate) FROM car WHERE lisence_plate LIKE 'MDO%'
+",1,5.8,13.748931884765625,winsorized
+8,"SELECT COUNT(driver_id) FROM driver
+",2,55986.0,4.759311676025391,normal
+9,"SELECT COUNT(driver_id) FROM driver
+",2,55986.2,15.090632438659668,bounded
+10,"SELECT COUNT(driver_id) FROM driver
+",2,55986.4,14.306402206420898,fastbounded
+11,"SELECT COUNT(driver_id) FROM driver
+",2,55985.3,13.341116905212402,winsorized
+12,"SELECT COUNT(driver_id) FROM driver
+",3,55986.0,4.138612747192383,normal
+13,"SELECT COUNT(driver_id) FROM driver
+",3,55986.0,13.03415298461914,bounded
+14,"SELECT COUNT(driver_id) FROM driver
+",3,55986.0,14.542937278747559,fastbounded
+15,"SELECT COUNT(driver_id) FROM driver
+",3,55986.0,14.840388298034668,winsorized
+16,"SELECT SUM(price) FROM completeride
+",4,3562329.7199999997,10.622310638427734,normal
+17,"SELECT SUM(price) FROM completeride
+",4,3562393.6,3571.3902950286865,bounded
+18,"SELECT SUM(price) FROM completeride
+",4,3562297.6,37.255311012268066,fastbounded
+19,"SELECT SUM(price) FROM completeride
+",4,3559955.2,59.8391056060791,winsorized
+20,"SELECT AVG(working_hours) FROM driver
+",5,7.9785124852641732,4.795217514038086,normal
+21,"SELECT AVG(working_hours) FROM driver
+",5,7.478310327512391,2002.0357608795166,bounded
+22,"SELECT AVG(working_hours) FROM driver
+",5,7.978452599988936,23.586273193359375,fastbounded
+23,"SELECT AVG(working_hours) FROM driver
+",5,7.979480436346077,28.113627433776855,winsorized
+24,"SELECT AVG(total_distance) FROM completeride
+",6,21.0050359,8.919548988342285,normal
+25,"SELECT AVG(total_distance) FROM completeride
+",6,21.004768026893867,3573.3874082565308,bounded
+26,"SELECT AVG(total_distance) FROM completeride
+",6,21.005119997444602,35.65108776092529,fastbounded
+27,"SELECT AVG(total_distance) FROM completeride
+",6,21.002087970556662,57.138800621032715,winsorized
+28,"SELECT COUNT(card_num) FROM card_
+",7,100000.0,5.6743621826171875,normal
+29,"SELECT COUNT(card_num) FROM card_
+",7,100000.6,15.29541015625,bounded
+30,"SELECT COUNT(card_num) FROM card_
+",7,100000.6,15.292024612426758,fastbounded
+31,"SELECT COUNT(card_num) FROM card_
+",7,100000.6,15.316081047058105,winsorized
+32,"SELECT AVG(curr_condition) FROM car
+",8,3.4409351707866374,4.192924499511719,normal
+33,"SELECT AVG(curr_condition) FROM car
+",8,2.940936660193966,1997.388482093811,bounded
+34,"SELECT AVG(curr_condition) FROM car
+",8,3.440958618722118,26.38237476348877,fastbounded
+35,"SELECT AVG(curr_condition) FROM car
+",8,3.4916349994979874,26.05159282684326,winsorized
+36,"SELECT AVG(num_ratings) FROM driver
+",9,154.3015932554567213,5.222082138061523,normal
+37,"SELECT AVG(num_ratings) FROM driver
+",9,154.3104489502899,2011.437726020813,bounded
+38,"SELECT AVG(num_ratings) FROM driver
+",9,154.3024657181972,24.396920204162598,fastbounded
+39,"SELECT AVG(num_ratings) FROM driver
+",9,154.1925099577432,32.61232376098633,winsorized
+40,"SELECT SUM(price) FROM completeride
+",10,3562329.7199999997,8.846807479858398,normal
+41,"SELECT SUM(price) FROM completeride
+",10,3562342.4,3573.437809944153,bounded
+42,"SELECT SUM(price) FROM completeride
+",10,3562304.0,37.42020130157471,fastbounded
+43,"SELECT SUM(price) FROM completeride
+",10,3559993.6,60.140132904052734,winsorized
+44,"SELECT MAX(model_year) FROM size_x
+",11,2018.0,6.880760192871094,normal
+45,"SELECT MAX(model_year) FROM size_x
+",11,2018.0,6.821894645690918,bounded
+46,"SELECT MAX(model_year) FROM size_x
+",11,2018.0,6.833910942077637,fastbounded
+47,"SELECT MAX(model_year) FROM size_x
+",11,2018.0,6.870293617248535,winsorized
