@@ -12,7 +12,7 @@ def privacy(db_name,query,mode):
         # Setup Connections
         connection = pg.connect(user = "postgres",password = "getup",host = "127.0.0.1",port = "5432",database = db_name)
         cursor = connection.cursor()
-        query= query.lower()
+        #query= query.lower()
         
         dtype=transform.find(query)
         
@@ -138,19 +138,19 @@ for i in queries:
 
 df = pd.DataFrame(data)
 
-print("\nNORMAL\n",df.iloc[df.mode=="normal",:-1].head(10))
+print("\nNORMAL\n",df[df.mode=="normal",:-1].head(10))
 print("\n-------------------------------------------------\n")
 
 
-print("\nBOUNDED\n",df.iloc[df.mode=="bounded",:-1].head(10))
+print("\nBOUNDED\n",df[df.mode=="bounded",:-1].head(10))
 print("\n-------------------------------------------------\n")
 
 
-print("\nFAST BOUNDED\n",df.iloc[df.mode=="fastbounded",:-1].head(10))
+print("\nFAST BOUNDED\n",df[df.mode=="fastbounded",:-1].head(10))
 print("\n-------------------------------------------------\n")
 
 
-print("\nWIDENED WINSORIZED\n",df.iloc[df.mode=="winsorized",:-1].head(10))
+print("\nWIDENED WINSORIZED\n",df[df.mode=="winsorized",:-1].head(10))
 print("\n-------------------------------------------------\n")
 
 file.close()
