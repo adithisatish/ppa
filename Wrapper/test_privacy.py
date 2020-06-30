@@ -103,38 +103,43 @@ file_path = "/".join(cwd) + "/" + sys.argv[1] + ".txt"
 file = open(file_path,'r')
 queries = file.readlines()
 
-data = {"query" : [], "result":[],"exec_time":[],"mode":[]}
+data = {"query" : [],"query_id":[], "result":[],"exec_time":[],"mode":[]}
 
 '''norm = {"query":[],"result":[],"exec_time":[]}
 bound =  {"query":[],"result":[],"exec_time":[]}
 fbnded =  {"query":[],"result":[],"exec_time":[]}
 win =  {"query":[],"result":[],"exec_time":[]}'''
-
+count = 0
 for i in queries:
     data["query"].append(i)
+    data["query_id"].append(count)
     normal = exec_query(i,"normal")
     data["result"].append(normal[0])
     data["exec_time"].append(normal[1])
     data["mode"].append("normal")
 
     data["query"].append(i)
+    data["query_id"].append(count)
     bounded = exec_query(i,"bounded")
     data["result"].append(bounded[0])
     data["exec_time"].append(bounded[1])
     data["mode"].append("bounded")
 
     data["query"].append(i)
+    data["query_id"].append(count)
     fastbounded = exec_query(i,"fastbounded")
     data["result"].append(fastbounded[0])
     data["exec_time"].append(fastbounded[1])
     data["mode"].append("fastbounded")
 
     data["query"].append(i)
+    data["query_id"].append(count)
     winsorized = exec_query(i,"winsorized")
     data["result"].append(winsorized[0])
     data["exec_time"].append(winsorized[1])
     data["mode"].append("winsorized")
 
+    count+=1
 
 df = pd.DataFrame(data)
 print("\n\nDataframe:\n\n",df.head(10))
