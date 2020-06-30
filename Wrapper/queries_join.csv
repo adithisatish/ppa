@@ -1,0 +1,137 @@
+,query,query_id,result,exec_time,mode
+0,"SELECT COUNT(driver.driver_id) FROM driver JOIN (SELECT lisence_plate FROM car WHERE curr_condition >= 5) AS n1 ON driver.lisence_plate = n1.lisence_plate AND avg_ratings <=3
+",0,4444.0,11.360836029052734,normal
+1,"SELECT COUNT(driver.driver_id) FROM driver JOIN (SELECT lisence_plate FROM car WHERE curr_condition >= 5) AS n1 ON driver.lisence_plate = n1.lisence_plate AND avg_ratings <=3
+",0,4443.6,20.78831195831299,bounded
+2,"SELECT COUNT(driver.driver_id) FROM driver JOIN (SELECT lisence_plate FROM car WHERE curr_condition >= 5) AS n1 ON driver.lisence_plate = n1.lisence_plate AND avg_ratings <=3
+",0,4443.5,20.757079124450684,fastbounded
+3,"SELECT COUNT(driver.driver_id) FROM driver JOIN (SELECT lisence_plate FROM car WHERE curr_condition >= 5) AS n1 ON driver.lisence_plate = n1.lisence_plate AND avg_ratings <=3
+",0,4443.6,20.83454132080078,winsorized
+4,"SELECT COUNT(card_.card_num) FROM card_ JOIN (SELECT card_num FROM passenger WHERE fname LIKE '%a%') AS n1 ON card_.card_num = n1.card_num AND exp_date > '2020-01-01' AND exp_date < '2021-01-01'
+",1,8085.0,19.17409896850586,normal
+5,"SELECT COUNT(card_.card_num) FROM card_ JOIN (SELECT card_num FROM passenger WHERE fname LIKE '%a%') AS n1 ON card_.card_num = n1.card_num AND exp_date > '2020-01-01' AND exp_date < '2021-01-01'
+",1,8085.9,27.763891220092773,bounded
+6,"SELECT COUNT(card_.card_num) FROM card_ JOIN (SELECT card_num FROM passenger WHERE fname LIKE '%a%') AS n1 ON card_.card_num = n1.card_num AND exp_date > '2020-01-01' AND exp_date < '2021-01-01'
+",1,8085.1,27.764534950256348,fastbounded
+7,"SELECT COUNT(card_.card_num) FROM card_ JOIN (SELECT card_num FROM passenger WHERE fname LIKE '%a%') AS n1 ON card_.card_num = n1.card_num AND exp_date > '2020-01-01' AND exp_date < '2021-01-01'
+",1,8085.0,27.779293060302734,winsorized
+8,"SELECT COUNT(driver.driver_id) FROM driver JOIN (SELECT driver_id FROM completeride WHERE price > 50) AS n1 ON driver.driver_id = n1.driver_id AND avg_ratings > 4
+",2,8749.0,18.012285232543945,normal
+9,"SELECT COUNT(driver.driver_id) FROM driver JOIN (SELECT driver_id FROM completeride WHERE price > 50) AS n1 ON driver.driver_id = n1.driver_id AND avg_ratings > 4
+",2,8749.3,26.648640632629395,bounded
+10,"SELECT COUNT(driver.driver_id) FROM driver JOIN (SELECT driver_id FROM completeride WHERE price > 50) AS n1 ON driver.driver_id = n1.driver_id AND avg_ratings > 4
+",2,8748.1,26.583480834960938,fastbounded
+11,"SELECT COUNT(driver.driver_id) FROM driver JOIN (SELECT driver_id FROM completeride WHERE price > 50) AS n1 ON driver.driver_id = n1.driver_id AND avg_ratings > 4
+",2,8749.3,26.600170135498047,winsorized
+12,"SELECT COUNT(driver.driver_id) FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_name = 'Mercedes E-class') AS n2 ON car.model_id = n2.model_id) AS n1 ON driver.lisence_plate = n1.lisence_plate AND avg_ratings = 5
+",3,570.0,17.897701263427734,normal
+13,"SELECT COUNT(driver.driver_id) FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_name = 'Mercedes E-class') AS n2 ON car.model_id = n2.model_id) AS n1 ON driver.lisence_plate = n1.lisence_plate AND avg_ratings = 5
+",3,569.4,26.700949668884277,bounded
+14,"SELECT COUNT(driver.driver_id) FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_name = 'Mercedes E-class') AS n2 ON car.model_id = n2.model_id) AS n1 ON driver.lisence_plate = n1.lisence_plate AND avg_ratings = 5
+",3,570.0,26.65262222290039,fastbounded
+15,"SELECT COUNT(driver.driver_id) FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_name = 'Mercedes E-class') AS n2 ON car.model_id = n2.model_id) AS n1 ON driver.lisence_plate = n1.lisence_plate AND avg_ratings = 5
+",3,570.3,26.698637008666992,winsorized
+16,"SELECT COUNT(driver.driver_id) FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_year = 2001) AS n2 ON car.model_id = n2.model_id) AS n1 ON driver.lisence_plate = n1.lisence_plate AND working_hours <=3
+",4,604.0,17.657947540283203,normal
+17,"SELECT COUNT(driver.driver_id) FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_year = 2001) AS n2 ON car.model_id = n2.model_id) AS n1 ON driver.lisence_plate = n1.lisence_plate AND working_hours <=3
+",4,604.0,26.34730339050293,bounded
+18,"SELECT COUNT(driver.driver_id) FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_year = 2001) AS n2 ON car.model_id = n2.model_id) AS n1 ON driver.lisence_plate = n1.lisence_plate AND working_hours <=3
+",4,603.9,26.549172401428223,fastbounded
+19,"SELECT COUNT(driver.driver_id) FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_year = 2001) AS n2 ON car.model_id = n2.model_id) AS n1 ON driver.lisence_plate = n1.lisence_plate AND working_hours <=3
+",4,604.4,26.46353244781494,winsorized
+20,"SELECT COUNT(completeride.driver_id) FROM completeride JOIN (SELECT driver_id FROM driver JOIN (SELECT lisence_plate FROM car WHERE model_ID = '3INOX77MLSV9766838') AS n2 ON driver.lisence_plate = n2.lisence_plate) AS n1 ON completeride.driver_id = n1.driver_id AND price > 40
+",5,2.0,20.832514762878418,normal
+21,"SELECT COUNT(completeride.driver_id) FROM completeride JOIN (SELECT driver_id FROM driver JOIN (SELECT lisence_plate FROM car WHERE model_ID = '3INOX77MLSV9766838') AS n2 ON driver.lisence_plate = n2.lisence_plate) AS n1 ON completeride.driver_id = n1.driver_id AND price > 40
+",5,1.7,29.782724380493164,bounded
+22,"SELECT COUNT(completeride.driver_id) FROM completeride JOIN (SELECT driver_id FROM driver JOIN (SELECT lisence_plate FROM car WHERE model_ID = '3INOX77MLSV9766838') AS n2 ON driver.lisence_plate = n2.lisence_plate) AS n1 ON completeride.driver_id = n1.driver_id AND price > 40
+",5,2.1,29.529976844787598,fastbounded
+23,"SELECT COUNT(completeride.driver_id) FROM completeride JOIN (SELECT driver_id FROM driver JOIN (SELECT lisence_plate FROM car WHERE model_ID = '3INOX77MLSV9766838') AS n2 ON driver.lisence_plate = n2.lisence_plate) AS n1 ON completeride.driver_id = n1.driver_id AND price > 40
+",5,2.3,29.775071144104004,winsorized
+24,"SELECT COUNT(driver.driver_id) FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_name LIKE '%Toyota%')AS n2 ON car.model_id = n2.model_id)AS n1 ON driver.lisence_plate = n1.lisence_plate AND working_hours > 8
+",6,4425.0,24.748778343200684,normal
+25,"SELECT COUNT(driver.driver_id) FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_name LIKE '%Toyota%')AS n2 ON car.model_id = n2.model_id)AS n1 ON driver.lisence_plate = n1.lisence_plate AND working_hours > 8
+",6,4426.3,33.356261253356934,bounded
+26,"SELECT COUNT(driver.driver_id) FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_name LIKE '%Toyota%')AS n2 ON car.model_id = n2.model_id)AS n1 ON driver.lisence_plate = n1.lisence_plate AND working_hours > 8
+",6,4424.7,33.25974941253662,fastbounded
+27,"SELECT COUNT(driver.driver_id) FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_name LIKE '%Toyota%')AS n2 ON car.model_id = n2.model_id)AS n1 ON driver.lisence_plate = n1.lisence_plate AND working_hours > 8
+",6,4424.9,33.38513374328613,winsorized
+28,"SELECT COUNT(price) FROM (SELECT price FROM (SELECT price, total_distance FROM completeride WHERE pickup_location like '%Mott Haven%')AS n1 WHERE total_distance > 10) AS n2 WHERE price > 10
+",7,27525.0,15.018367767333984,normal
+29,"SELECT COUNT(price) FROM (SELECT price FROM (SELECT price, total_distance FROM completeride WHERE pickup_location like '%Mott Haven%')AS n1 WHERE total_distance > 10) AS n2 WHERE price > 10
+",7,27524.9,24.065494537353516,bounded
+30,"SELECT COUNT(price) FROM (SELECT price FROM (SELECT price, total_distance FROM completeride WHERE pickup_location like '%Mott Haven%')AS n1 WHERE total_distance > 10) AS n2 WHERE price > 10
+",7,27525.7,24.14684295654297,fastbounded
+31,"SELECT COUNT(price) FROM (SELECT price FROM (SELECT price, total_distance FROM completeride WHERE pickup_location like '%Mott Haven%')AS n1 WHERE total_distance > 10) AS n2 WHERE price > 10
+",7,27524.6,24.182701110839844,winsorized
+32,"SELECT COUNT(completeride.driver_id) FROM completeride JOIN (SELECT driver_id FROM driver JOIN ( SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_name = 'Mercedes E-class')AS n3 ON car.model_id=n3.model_id)AS n2 ON driver.lisence_plate=n2.lisence_plate)AS n1 ON completeride.driver_id=n1.driver_id AND price>60
+",8,524.0,28.42733860015869,normal
+33,"SELECT COUNT(completeride.driver_id) FROM completeride JOIN (SELECT driver_id FROM driver JOIN ( SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_name = 'Mercedes E-class')AS n3 ON car.model_id=n3.model_id)AS n2 ON driver.lisence_plate=n2.lisence_plate)AS n1 ON completeride.driver_id=n1.driver_id AND price>60
+",8,523.7,37.258243560791016,bounded
+34,"SELECT COUNT(completeride.driver_id) FROM completeride JOIN (SELECT driver_id FROM driver JOIN ( SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_name = 'Mercedes E-class')AS n3 ON car.model_id=n3.model_id)AS n2 ON driver.lisence_plate=n2.lisence_plate)AS n1 ON completeride.driver_id=n1.driver_id AND price>60
+",8,523.6,37.37077713012695,fastbounded
+35,"SELECT COUNT(completeride.driver_id) FROM completeride JOIN (SELECT driver_id FROM driver JOIN ( SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_name = 'Mercedes E-class')AS n3 ON car.model_id=n3.model_id)AS n2 ON driver.lisence_plate=n2.lisence_plate)AS n1 ON completeride.driver_id=n1.driver_id AND price>60
+",8,524.5,37.33057975769043,winsorized
+36,"SELECT COUNT(completeride.driver_id) FROM completeride JOIN (SELECT driver_id FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_name LIKE '%Hyundai%')AS n3 ON car.model_id = n3.model_id) AS n2 ON driver.lisence_plate=n2.lisence_plate) AS n1 ON completeride.driver_id=n1.driver_id AND pickup_location LIKE '%South Bronx%'
+",9,4044.0,41.343092918395996,normal
+37,"SELECT COUNT(completeride.driver_id) FROM completeride JOIN (SELECT driver_id FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_name LIKE '%Hyundai%')AS n3 ON car.model_id = n3.model_id) AS n2 ON driver.lisence_plate=n2.lisence_plate) AS n1 ON completeride.driver_id=n1.driver_id AND pickup_location LIKE '%South Bronx%'
+",9,4042.7,50.40485858917236,bounded
+38,"SELECT COUNT(completeride.driver_id) FROM completeride JOIN (SELECT driver_id FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_name LIKE '%Hyundai%')AS n3 ON car.model_id = n3.model_id) AS n2 ON driver.lisence_plate=n2.lisence_plate) AS n1 ON completeride.driver_id=n1.driver_id AND pickup_location LIKE '%South Bronx%'
+",9,4043.5,50.30777454376221,fastbounded
+39,"SELECT COUNT(completeride.driver_id) FROM completeride JOIN (SELECT driver_id FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_name LIKE '%Hyundai%')AS n3 ON car.model_id = n3.model_id) AS n2 ON driver.lisence_plate=n2.lisence_plate) AS n1 ON completeride.driver_id=n1.driver_id AND pickup_location LIKE '%South Bronx%'
+",9,4044.2,53.598713874816895,winsorized
+40,"SELECT COUNT(completeride.driver_id) FROM completeride JOIN (SELECT driver_id FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_year = 2010) AS n3 ON car.model_id=n3.model_id) AS n2 ON driver.lisence_plate=n2.lisence_plate) AS n1 ON completeride.driver_id=n1.driver_id AND total_distance > 50
+",10,0.0,8.382725715637207,normal
+41,"SELECT COUNT(completeride.driver_id) FROM completeride JOIN (SELECT driver_id FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_year = 2010) AS n3 ON car.model_id=n3.model_id) AS n2 ON driver.lisence_plate=n2.lisence_plate) AS n1 ON completeride.driver_id=n1.driver_id AND total_distance > 50
+",10,,17.032146453857422,bounded
+42,"SELECT COUNT(completeride.driver_id) FROM completeride JOIN (SELECT driver_id FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_year = 2010) AS n3 ON car.model_id=n3.model_id) AS n2 ON driver.lisence_plate=n2.lisence_plate) AS n1 ON completeride.driver_id=n1.driver_id AND total_distance > 50
+",10,,17.090559005737305,fastbounded
+43,"SELECT COUNT(completeride.driver_id) FROM completeride JOIN (SELECT driver_id FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_year = 2010) AS n3 ON car.model_id=n3.model_id) AS n2 ON driver.lisence_plate=n2.lisence_plate) AS n1 ON completeride.driver_id=n1.driver_id AND total_distance > 50
+",10,,17.095208168029785,winsorized
+44,"SELECT COUNT(passenger.passenger_id) FROM passenger JOIN (SELECT passenger_id FROM completeride JOIN (SELECT driver_id FROM driver JOIN (SELECT lisence_plate FROM car WHERE curr_condition = 4) AS n3 ON driver.lisence_plate = n3.lisence_plate) AS n2 ON completeride.driver_id=n2.driver_id) AS n1 ON passenger.passenger_id=n1.passenger_id AND fname LIKE 'a%'
+",11,4629.0,37.2816801071167,normal
+45,"SELECT COUNT(passenger.passenger_id) FROM passenger JOIN (SELECT passenger_id FROM completeride JOIN (SELECT driver_id FROM driver JOIN (SELECT lisence_plate FROM car WHERE curr_condition = 4) AS n3 ON driver.lisence_plate = n3.lisence_plate) AS n2 ON completeride.driver_id=n2.driver_id) AS n1 ON passenger.passenger_id=n1.passenger_id AND fname LIKE 'a%'
+",11,4629.2,45.813846588134766,bounded
+46,"SELECT COUNT(passenger.passenger_id) FROM passenger JOIN (SELECT passenger_id FROM completeride JOIN (SELECT driver_id FROM driver JOIN (SELECT lisence_plate FROM car WHERE curr_condition = 4) AS n3 ON driver.lisence_plate = n3.lisence_plate) AS n2 ON completeride.driver_id=n2.driver_id) AS n1 ON passenger.passenger_id=n1.passenger_id AND fname LIKE 'a%'
+",11,4628.7,45.77302932739258,fastbounded
+47,"SELECT COUNT(passenger.passenger_id) FROM passenger JOIN (SELECT passenger_id FROM completeride JOIN (SELECT driver_id FROM driver JOIN (SELECT lisence_plate FROM car WHERE curr_condition = 4) AS n3 ON driver.lisence_plate = n3.lisence_plate) AS n2 ON completeride.driver_id=n2.driver_id) AS n1 ON passenger.passenger_id=n1.passenger_id AND fname LIKE 'a%'
+",11,4629.3,45.69418430328369,winsorized
+48,"SELECT COUNT(price) FROM (SELECT completeride.driver_id, completeride.price FROM completeride JOIN (SELECT driver_id FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_year = 2010) AS n3 ON car.model_id=n3.model_id) AS n2 ON driver.lisence_plate=n2.lisence_plate) AS n1 ON completeride.driver_id=n1.driver_id AND total_distance > 20)AS n1 WHERE price>60
+",12,378.0,28.887629508972168,normal
+49,"SELECT COUNT(price) FROM (SELECT completeride.driver_id, completeride.price FROM completeride JOIN (SELECT driver_id FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_year = 2010) AS n3 ON car.model_id=n3.model_id) AS n2 ON driver.lisence_plate=n2.lisence_plate) AS n1 ON completeride.driver_id=n1.driver_id AND total_distance > 20)AS n1 WHERE price>60
+",12,378.3,37.68007755279541,bounded
+50,"SELECT COUNT(price) FROM (SELECT completeride.driver_id, completeride.price FROM completeride JOIN (SELECT driver_id FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_year = 2010) AS n3 ON car.model_id=n3.model_id) AS n2 ON driver.lisence_plate=n2.lisence_plate) AS n1 ON completeride.driver_id=n1.driver_id AND total_distance > 20)AS n1 WHERE price>60
+",12,378.8,37.7802848815918,fastbounded
+51,"SELECT COUNT(price) FROM (SELECT completeride.driver_id, completeride.price FROM completeride JOIN (SELECT driver_id FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_year = 2010) AS n3 ON car.model_id=n3.model_id) AS n2 ON driver.lisence_plate=n2.lisence_plate) AS n1 ON completeride.driver_id=n1.driver_id AND total_distance > 20)AS n1 WHERE price>60
+",12,378.1,37.596893310546875,winsorized
+52,"SELECT model_name FROM size_x JOIN (SELECT model_id FROM car WHERE purchase_date > '2009-12-31' AND purchase_date < '2011-01-01') AS n1 ON size_x.model_id=n1.model_id GROUP BY model_name ORDER BY COUNT(model_name) DESC LIMIT 1
+",13,Hyundai Xcent,14.185380935668945,normal
+53,"SELECT model_name FROM size_x JOIN (SELECT model_id FROM car WHERE purchase_date > '2009-12-31' AND purchase_date < '2011-01-01') AS n1 ON size_x.model_id=n1.model_id GROUP BY model_name ORDER BY COUNT(model_name) DESC LIMIT 1
+",13,,14.237689971923828,bounded
+54,"SELECT model_name FROM size_x JOIN (SELECT model_id FROM car WHERE purchase_date > '2009-12-31' AND purchase_date < '2011-01-01') AS n1 ON size_x.model_id=n1.model_id GROUP BY model_name ORDER BY COUNT(model_name) DESC LIMIT 1
+",13,,14.609313011169434,fastbounded
+55,"SELECT model_name FROM size_x JOIN (SELECT model_id FROM car WHERE purchase_date > '2009-12-31' AND purchase_date < '2011-01-01') AS n1 ON size_x.model_id=n1.model_id GROUP BY model_name ORDER BY COUNT(model_name) DESC LIMIT 1
+",13,,14.612650871276855,winsorized
+56,"SELECT COUNT(n1.driver_id) FROM (SELECT driver_id, AVG(total_distance) FROM completeride GROUP BY driver_id)AS n1 JOIN (SELECT driver_id, SUM(price) FROM completeride GROUP BY driver_id) AS n2 ON n1.driver_id=n2.driver_id WHERE AVG>20 AND SUM>300
+",14,45.0,131.14302158355713,normal
+57,"SELECT COUNT(n1.driver_id) FROM (SELECT driver_id, AVG(total_distance) FROM completeride GROUP BY driver_id)AS n1 JOIN (SELECT driver_id, SUM(price) FROM completeride GROUP BY driver_id) AS n2 ON n1.driver_id=n2.driver_id WHERE AVG>20 AND SUM>300
+",14,44.8,178.84275913238525,bounded
+58,"SELECT COUNT(n1.driver_id) FROM (SELECT driver_id, AVG(total_distance) FROM completeride GROUP BY driver_id)AS n1 JOIN (SELECT driver_id, SUM(price) FROM completeride GROUP BY driver_id) AS n2 ON n1.driver_id=n2.driver_id WHERE AVG>20 AND SUM>300
+",14,45.6,177.62353420257568,fastbounded
+59,"SELECT COUNT(n1.driver_id) FROM (SELECT driver_id, AVG(total_distance) FROM completeride GROUP BY driver_id)AS n1 JOIN (SELECT driver_id, SUM(price) FROM completeride GROUP BY driver_id) AS n2 ON n1.driver_id=n2.driver_id WHERE AVG>20 AND SUM>300
+",14,45.1,177.4245262145996,winsorized
+60,"SELECT COUNT(n1.driver_id) FROM (SELECT driver_id, working_hours FROM driver)AS n1 JOIN (SELECT driver_id, SUM(price) FROM completeride GROUP BY driver_id) AS n2 ON n1.driver_id=n2.driver_id AND n1.working_hours>8 AND n2.SUM>400
+",15,2.0,31.043100357055664,normal
+61,"SELECT COUNT(n1.driver_id) FROM (SELECT driver_id, working_hours FROM driver)AS n1 JOIN (SELECT driver_id, SUM(price) FROM completeride GROUP BY driver_id) AS n2 ON n1.driver_id=n2.driver_id AND n1.working_hours>8 AND n2.SUM>400
+",15,2.5,40.17345905303955,bounded
+62,"SELECT COUNT(n1.driver_id) FROM (SELECT driver_id, working_hours FROM driver)AS n1 JOIN (SELECT driver_id, SUM(price) FROM completeride GROUP BY driver_id) AS n2 ON n1.driver_id=n2.driver_id AND n1.working_hours>8 AND n2.SUM>400
+",15,1.9,40.01502990722656,fastbounded
+63,"SELECT COUNT(n1.driver_id) FROM (SELECT driver_id, working_hours FROM driver)AS n1 JOIN (SELECT driver_id, SUM(price) FROM completeride GROUP BY driver_id) AS n2 ON n1.driver_id=n2.driver_id AND n1.working_hours>8 AND n2.SUM>400
+",15,2.4,40.131402015686035,winsorized
+64,"SELECT MAX(avg) FROM (SELECT AVG(total_distance) FROM completeride JOIN (SELECT driver_id FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_name='Mercedes E-class') AS n4 ON car.model_id=n4.model_id) AS n3 ON driver.lisence_plate=n3.lisence_plate) AS n2 ON completeride.driver_id=n2.driver_id GROUP BY completeride.driver_id) AS n1
+",16,39.99,33.40122699737549,normal
+65,"SELECT MAX(avg) FROM (SELECT AVG(total_distance) FROM completeride JOIN (SELECT driver_id FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_name='Mercedes E-class') AS n4 ON car.model_id=n4.model_id) AS n3 ON driver.lisence_plate=n3.lisence_plate) AS n2 ON completeride.driver_id=n2.driver_id GROUP BY completeride.driver_id) AS n1
+",16,39.99,33.24613571166992,bounded
+66,"SELECT MAX(avg) FROM (SELECT AVG(total_distance) FROM completeride JOIN (SELECT driver_id FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_name='Mercedes E-class') AS n4 ON car.model_id=n4.model_id) AS n3 ON driver.lisence_plate=n3.lisence_plate) AS n2 ON completeride.driver_id=n2.driver_id GROUP BY completeride.driver_id) AS n1
+",16,39.99,33.31782817840576,fastbounded
+67,"SELECT MAX(avg) FROM (SELECT AVG(total_distance) FROM completeride JOIN (SELECT driver_id FROM driver JOIN (SELECT lisence_plate FROM car JOIN (SELECT model_id FROM size_x WHERE model_name='Mercedes E-class') AS n4 ON car.model_id=n4.model_id) AS n3 ON driver.lisence_plate=n3.lisence_plate) AS n2 ON completeride.driver_id=n2.driver_id GROUP BY completeride.driver_id) AS n1
+",16,39.99,33.36827754974365,winsorized
