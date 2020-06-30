@@ -139,7 +139,7 @@ for i in queries:
 df = pd.DataFrame(data)
 print("\n\nDataframe:\n\n",df.head(10))
 
-df.to_csv(sys.argv[1])
+df.to_csv(sys.argv[1] + ".csv")
 
 '''
 print("\nNORMAL\n",df[df.mode=="normal",:-1].head(10))
