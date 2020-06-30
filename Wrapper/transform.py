@@ -49,7 +49,7 @@ def winsorized(query,dtype):
 			return lst[0]+"anon_"+dtype+"("+lst[1]
 
 		att = lst[1].split(")")
-		table = att[1].split("from ")[1]
+		table = (att[1]).lower().split("from ")[1]
 
 		lowerbound = "select percentile_cont(0.15) within group(order by " + att[0] + ") from " + table
 		upperbound = "select percentile_cont(0.85) within group(order by " + att[0] + ") from " + table
