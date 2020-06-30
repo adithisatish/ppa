@@ -137,7 +137,8 @@ for i in queries:
 
 
 df = pd.DataFrame(data)
-
+print("\n\nDataframe:\n\n",df.head(10))
+'''
 print("\nNORMAL\n",df[df.mode=="normal",:-1].head(10))
 print("\n-------------------------------------------------\n")
 
@@ -152,5 +153,5 @@ print("\n-------------------------------------------------\n")
 
 print("\nWIDENED WINSORIZED\n",df[df.mode=="winsorized",:-1].head(10))
 print("\n-------------------------------------------------\n")
-
+'''
 file.close()
