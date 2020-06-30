@@ -146,4 +146,10 @@ print("\nWIDENED WINSORIZED\n",df_winsorized.head(10))
 print("\n-------------------------------------------------\n")
 
 file.close()
+
+df_normal.join(df_bound.set_index("query"),"query",)
+df_normal.join(df_fastbound.set_index("query"),"query")
+df_normal.join(df_winsorized.set_index("query"),"query")
+print("\n\n\n--------------------------------------------------------")
+print(df_normal.head())
 #privacy("uber","select avg(total_distance) from completeride","winsorized")
