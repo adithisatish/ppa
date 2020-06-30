@@ -1,121 +1,121 @@
-,query,result,exec_time,mode
+,query,query_id,result,exec_time,mode
 0,"SELECT COUNT(model_id) FROM car WHERE(model_id IN (SELECT model_id FROM size_x WHERE model_name = 'Maruti Suzuki Swift')) AND purchase_date > '2009-12-31' AND purchase_date < '2011-01-01'
-",141.0,10.950946807861328,normal
+",0,141.0,10.873579978942871,normal
 1,"SELECT COUNT(model_id) FROM car WHERE(model_id IN (SELECT model_id FROM size_x WHERE model_name = 'Maruti Suzuki Swift')) AND purchase_date > '2009-12-31' AND purchase_date < '2011-01-01'
-",140.7,20.111966133117676,bounded
+",0,140.8,20.029926300048828,bounded
 2,"SELECT COUNT(model_id) FROM car WHERE(model_id IN (SELECT model_id FROM size_x WHERE model_name = 'Maruti Suzuki Swift')) AND purchase_date > '2009-12-31' AND purchase_date < '2011-01-01'
-",140.6,19.96903419494629,fastbounded
+",0,140.7,19.938039779663086,fastbounded
 3,"SELECT COUNT(model_id) FROM car WHERE(model_id IN (SELECT model_id FROM size_x WHERE model_name = 'Maruti Suzuki Swift')) AND purchase_date > '2009-12-31' AND purchase_date < '2011-01-01'
-",140.2,19.96612548828125,winsorized
+",0,140.7,19.962000846862793,winsorized
 4,"SELECT COUNT(driver_id) FROM driver WHERE(lisence_plate IN (SELECT lisence_plate FROM car WHERE curr_condition >= 5)) AND avg_ratings <=3
-",4444.0,11.29448413848877,normal
+",1,4444.0,11.176300048828125,normal
 5,"SELECT COUNT(driver_id) FROM driver WHERE(lisence_plate IN (SELECT lisence_plate FROM car WHERE curr_condition >= 5)) AND avg_ratings <=3
-",4444.1,19.732308387756348,bounded
+",1,4444.8,19.484353065490723,bounded
 6,"SELECT COUNT(driver_id) FROM driver WHERE(lisence_plate IN (SELECT lisence_plate FROM car WHERE curr_condition >= 5)) AND avg_ratings <=3
-",4444.1,19.705724716186523,fastbounded
+",1,4444.6,19.66550350189209,fastbounded
 7,"SELECT COUNT(driver_id) FROM driver WHERE(lisence_plate IN (SELECT lisence_plate FROM car WHERE curr_condition >= 5)) AND avg_ratings <=3
-",4444.9,19.728779792785645,winsorized
+",1,4444.3,19.803786277770996,winsorized
 8,"SELECT COUNT(card_num) FROM card_ WHERE (card_num IN (SELECT card_num FROM passenger WHERE fname LIKE '%a%')) AND exp_date > '2020-01-01' AND exp_date < '2021-01-01'
-",8085.0,21.196961402893066,normal
+",2,8085.0,21.357369422912598,normal
 9,"SELECT COUNT(card_num) FROM card_ WHERE (card_num IN (SELECT card_num FROM passenger WHERE fname LIKE '%a%')) AND exp_date > '2020-01-01' AND exp_date < '2021-01-01'
-",8084.9,29.659175872802734,bounded
+",2,8085.7,29.72426414489746,bounded
 10,"SELECT COUNT(card_num) FROM card_ WHERE (card_num IN (SELECT card_num FROM passenger WHERE fname LIKE '%a%')) AND exp_date > '2020-01-01' AND exp_date < '2021-01-01'
-",8085.4,29.65216636657715,fastbounded
+",2,8084.8,29.888224601745605,fastbounded
 11,"SELECT COUNT(card_num) FROM card_ WHERE (card_num IN (SELECT card_num FROM passenger WHERE fname LIKE '%a%')) AND exp_date > '2020-01-01' AND exp_date < '2021-01-01'
-",8084.6,29.550695419311523,winsorized
+",2,8085.1,29.665732383728027,winsorized
 12,"SELECT COUNT(driver_id) FROM DRIVER WHERE (driver_id IN (SELECT driver_id FROM completeride WHERE price > 50)) AND avg_ratings > 4
-",6591.0,18.288588523864746,normal
+",3,6591.0,18.613600730895996,normal
 13,"SELECT COUNT(driver_id) FROM DRIVER WHERE (driver_id IN (SELECT driver_id FROM completeride WHERE price > 50)) AND avg_ratings > 4
-",6591.1,26.973819732666016,bounded
+",3,6591.0,26.995468139648438,bounded
 14,"SELECT COUNT(driver_id) FROM DRIVER WHERE (driver_id IN (SELECT driver_id FROM completeride WHERE price > 50)) AND avg_ratings > 4
-",6591.1,27.00672149658203,fastbounded
+",3,6591.0,27.239298820495605,fastbounded
 15,"SELECT COUNT(driver_id) FROM DRIVER WHERE (driver_id IN (SELECT driver_id FROM completeride WHERE price > 50)) AND avg_ratings > 4
-",6590.5,26.889586448669434,winsorized
+",3,6590.8,27.044987678527832,winsorized
 16,"SELECT COUNT(model_id) FROM car WHERE(model_id IN (SELECT model_id FROM size_x WHERE model_name = 'Maruti Suzuki Swift')) AND curr_condition > 5
-",0.0,4.0145158767700195,normal
+",4,0.0,4.006481170654297,normal
 17,"SELECT COUNT(model_id) FROM car WHERE(model_id IN (SELECT model_id FROM size_x WHERE model_name = 'Maruti Suzuki Swift')) AND curr_condition > 5
-",,12.447214126586914,bounded
+",4,,12.642621994018555,bounded
 18,"SELECT COUNT(model_id) FROM car WHERE(model_id IN (SELECT model_id FROM size_x WHERE model_name = 'Maruti Suzuki Swift')) AND curr_condition > 5
-",,12.35342025756836,fastbounded
+",4,,12.914705276489258,fastbounded
 19,"SELECT COUNT(model_id) FROM car WHERE(model_id IN (SELECT model_id FROM size_x WHERE model_name = 'Maruti Suzuki Swift')) AND curr_condition > 5
-",,12.51211166381836,winsorized
+",4,,13.59410285949707,winsorized
 20,"SELECT COUNT(driver_id) FROM driver WHERE (lisence_plate IN (SELECT lisence_plate FROM car WHERE(model_id IN (SELECT model_id FROM size_x WHERE model_name = 'Mercedes E-class')))) AND avg_ratings = 5
-",570.0,17.876029014587402,normal
+",5,570.0,18.467330932617188,normal
 21,"SELECT COUNT(driver_id) FROM driver WHERE (lisence_plate IN (SELECT lisence_plate FROM car WHERE(model_id IN (SELECT model_id FROM size_x WHERE model_name = 'Mercedes E-class')))) AND avg_ratings = 5
-",569.1,26.669621467590332,bounded
+",5,570.0,26.566481590270996,bounded
 22,"SELECT COUNT(driver_id) FROM driver WHERE (lisence_plate IN (SELECT lisence_plate FROM car WHERE(model_id IN (SELECT model_id FROM size_x WHERE model_name = 'Mercedes E-class')))) AND avg_ratings = 5
-",569.7,26.57308578491211,fastbounded
+",5,569.0,26.677274703979492,fastbounded
 23,"SELECT COUNT(driver_id) FROM driver WHERE (lisence_plate IN (SELECT lisence_plate FROM car WHERE(model_id IN (SELECT model_id FROM size_x WHERE model_name = 'Mercedes E-class')))) AND avg_ratings = 5
-",569.7,26.714706420898438,winsorized
+",5,570.1,26.73161029815674,winsorized
 24,"SELECT COUNT(driver_id) FROM driver WHERE(lisence_plate IN (SELECT lisence_plate FROM car WHERE(model_id IN (SELECT model_id FROM size_x WHERE model_year = 2001)))) AND working_hours <=3
-",604.0,17.704153060913086,normal
+",6,604.0,17.710065841674805,normal
 25,"SELECT COUNT(driver_id) FROM driver WHERE(lisence_plate IN (SELECT lisence_plate FROM car WHERE(model_id IN (SELECT model_id FROM size_x WHERE model_year = 2001)))) AND working_hours <=3
-",603.5,26.3258695602417,bounded
+",6,603.7,26.46920680999756,bounded
 26,"SELECT COUNT(driver_id) FROM driver WHERE(lisence_plate IN (SELECT lisence_plate FROM car WHERE(model_id IN (SELECT model_id FROM size_x WHERE model_year = 2001)))) AND working_hours <=3
-",604.1,26.439237594604492,fastbounded
+",6,603.8,26.384305953979492,fastbounded
 27,"SELECT COUNT(driver_id) FROM driver WHERE(lisence_plate IN (SELECT lisence_plate FROM car WHERE(model_id IN (SELECT model_id FROM size_x WHERE model_year = 2001)))) AND working_hours <=3
-",604.6,26.55811309814453,winsorized
+",6,604.8,26.439380645751953,winsorized
 28,"SELECT COUNT(driver_id) FROM completeride WHERE (driver_id IN (SELECT driver_id FROM driver WHERE (lisence_plate IN (SELECT lisence_plate FROM car WHERE model_ID = '3INOX77MLSV9766838')))) AND price > 40
-",2.0,20.880675315856934,normal
+",7,2.0,21.01302146911621,normal
 29,"SELECT COUNT(driver_id) FROM completeride WHERE (driver_id IN (SELECT driver_id FROM driver WHERE (lisence_plate IN (SELECT lisence_plate FROM car WHERE model_ID = '3INOX77MLSV9766838')))) AND price > 40
-",1.8,29.92727756500244,bounded
+",7,2.4,29.68759536743164,bounded
 30,"SELECT COUNT(driver_id) FROM completeride WHERE (driver_id IN (SELECT driver_id FROM driver WHERE (lisence_plate IN (SELECT lisence_plate FROM car WHERE model_ID = '3INOX77MLSV9766838')))) AND price > 40
-",2.1,29.67207431793213,fastbounded
+",7,1.9,29.6173095703125,fastbounded
 31,"SELECT COUNT(driver_id) FROM completeride WHERE (driver_id IN (SELECT driver_id FROM driver WHERE (lisence_plate IN (SELECT lisence_plate FROM car WHERE model_ID = '3INOX77MLSV9766838')))) AND price > 40
-",2.5,29.662132263183594,winsorized
+",7,2.1,29.64792251586914,winsorized
 32,"SELECT COUNT(driver_id) FROM driver WHERE (lisence_plate IN (SELECT lisence_plate FROM car WHERE(model_id IN (SELECT model_id FROM size_x WHERE model_name LIKE '%Toyota%')))) AND working_hours > 8
-",4425.0,24.642515182495117,normal
+",8,4425.0,24.637722969055176,normal
 33,"SELECT COUNT(driver_id) FROM driver WHERE (lisence_plate IN (SELECT lisence_plate FROM car WHERE(model_id IN (SELECT model_id FROM size_x WHERE model_name LIKE '%Toyota%')))) AND working_hours > 8
-",4423.9,33.22741985321045,bounded
+",8,4424.6,33.2291841506958,bounded
 34,"SELECT COUNT(driver_id) FROM driver WHERE (lisence_plate IN (SELECT lisence_plate FROM car WHERE(model_id IN (SELECT model_id FROM size_x WHERE model_name LIKE '%Toyota%')))) AND working_hours > 8
-",4425.2,33.275604248046875,fastbounded
+",8,4425.4,33.187317848205566,fastbounded
 35,"SELECT COUNT(driver_id) FROM driver WHERE (lisence_plate IN (SELECT lisence_plate FROM car WHERE(model_id IN (SELECT model_id FROM size_x WHERE model_name LIKE '%Toyota%')))) AND working_hours > 8
-",4424.4,33.275485038757324,winsorized
+",8,4425.1,33.20417404174805,winsorized
 36,"SELECT COUNT(price) FROM (SELECT price FROM (SELECT price, total_distance FROM completeride WHERE pickup_location like '%Mott Haven%')AS n1 WHERE total_distance > 10) AS n2 WHERE price > 10
-",27525.0,15.09709358215332,normal
+",9,27525.0,15.216898918151855,normal
 37,"SELECT COUNT(price) FROM (SELECT price FROM (SELECT price, total_distance FROM completeride WHERE pickup_location like '%Mott Haven%')AS n1 WHERE total_distance > 10) AS n2 WHERE price > 10
-",27525.0,23.957371711730957,bounded
+",9,27523.9,24.166345596313477,bounded
 38,"SELECT COUNT(price) FROM (SELECT price FROM (SELECT price, total_distance FROM completeride WHERE pickup_location like '%Mott Haven%')AS n1 WHERE total_distance > 10) AS n2 WHERE price > 10
-",27525.1,24.063849449157715,fastbounded
+",9,27524.9,24.329137802124023,fastbounded
 39,"SELECT COUNT(price) FROM (SELECT price FROM (SELECT price, total_distance FROM completeride WHERE pickup_location like '%Mott Haven%')AS n1 WHERE total_distance > 10) AS n2 WHERE price > 10
-",27525.5,24.163198471069336,winsorized
+",9,27524.4,24.355483055114746,winsorized
 40,"SELECT COUNT(driver_id) FROM completeride WHERE (driver_id IN (SELECT driver_id FROM driver WHERE (lisence_plate IN ( SELECT lisence_plate FROM car WHERE (model_id IN (SELECT model_id FROM size_x WHERE model_name = 'Mercedes E-class')))))) AND price>60
-",524.0,28.270411491394043,normal
+",10,524.0,28.27918529510498,normal
 41,"SELECT COUNT(driver_id) FROM completeride WHERE (driver_id IN (SELECT driver_id FROM driver WHERE (lisence_plate IN ( SELECT lisence_plate FROM car WHERE (model_id IN (SELECT model_id FROM size_x WHERE model_name = 'Mercedes E-class')))))) AND price>60
-",524.6,37.225937843322754,bounded
+",10,524.5,37.10169792175293,bounded
 42,"SELECT COUNT(driver_id) FROM completeride WHERE (driver_id IN (SELECT driver_id FROM driver WHERE (lisence_plate IN ( SELECT lisence_plate FROM car WHERE (model_id IN (SELECT model_id FROM size_x WHERE model_name = 'Mercedes E-class')))))) AND price>60
-",524.5,42.81430244445801,fastbounded
+",10,524.1,40.00391960144043,fastbounded
 43,"SELECT COUNT(driver_id) FROM completeride WHERE (driver_id IN (SELECT driver_id FROM driver WHERE (lisence_plate IN ( SELECT lisence_plate FROM car WHERE (model_id IN (SELECT model_id FROM size_x WHERE model_name = 'Mercedes E-class')))))) AND price>60
-",523.8,51.151084899902344,winsorized
+",10,524.9,37.10460662841797,winsorized
 44,"SELECT COUNT(driver_id) FROM completeride WHERE (driver_id IN (SELECT driver_id FROM driver WHERE (lisence_plate IN ( SELECT lisence_plate FROM car WHERE (model_id IN (SELECT model_id FROM size_x WHERE model_name LIKE '%Hyundai%')))))) AND pickup_location LIKE '%South Bronx%'
-",4044.0,41.495704650878906,normal
+",11,4044.0,41.21391773223877,normal
 45,"SELECT COUNT(driver_id) FROM completeride WHERE (driver_id IN (SELECT driver_id FROM driver WHERE (lisence_plate IN ( SELECT lisence_plate FROM car WHERE (model_id IN (SELECT model_id FROM size_x WHERE model_name LIKE '%Hyundai%')))))) AND pickup_location LIKE '%South Bronx%'
-",4044.2,50.0014066696167,bounded
+",11,4044.5,49.88663196563721,bounded
 46,"SELECT COUNT(driver_id) FROM completeride WHERE (driver_id IN (SELECT driver_id FROM driver WHERE (lisence_plate IN ( SELECT lisence_plate FROM car WHERE (model_id IN (SELECT model_id FROM size_x WHERE model_name LIKE '%Hyundai%')))))) AND pickup_location LIKE '%South Bronx%'
-",4043.7,49.95412826538086,fastbounded
+",11,4044.0,50.18587112426758,fastbounded
 47,"SELECT COUNT(driver_id) FROM completeride WHERE (driver_id IN (SELECT driver_id FROM driver WHERE (lisence_plate IN ( SELECT lisence_plate FROM car WHERE (model_id IN (SELECT model_id FROM size_x WHERE model_name LIKE '%Hyundai%')))))) AND pickup_location LIKE '%South Bronx%'
-",4043.8,50.042033195495605,winsorized
+",11,4044.2,49.76305961608887,winsorized
 48,"SELECT COUNT(driver_id) FROM completeride WHERE (driver_id IN (SELECT driver_id FROM driver WHERE (lisence_plate IN ( SELECT lisence_plate FROM car WHERE (model_id IN (SELECT model_id FROM size_x WHERE model_year = 2010)))))) AND total_distance > 50
-",0.0,8.24592113494873,normal
+",12,0.0,8.27031135559082,normal
 49,"SELECT COUNT(driver_id) FROM completeride WHERE (driver_id IN (SELECT driver_id FROM driver WHERE (lisence_plate IN ( SELECT lisence_plate FROM car WHERE (model_id IN (SELECT model_id FROM size_x WHERE model_year = 2010)))))) AND total_distance > 50
-",,20.48649787902832,bounded
+",12,,16.991066932678223,bounded
 50,"SELECT COUNT(driver_id) FROM completeride WHERE (driver_id IN (SELECT driver_id FROM driver WHERE (lisence_plate IN ( SELECT lisence_plate FROM car WHERE (model_id IN (SELECT model_id FROM size_x WHERE model_year = 2010)))))) AND total_distance > 50
-",,26.454758644104004,fastbounded
+",12,,17.630815505981445,fastbounded
 51,"SELECT COUNT(driver_id) FROM completeride WHERE (driver_id IN (SELECT driver_id FROM driver WHERE (lisence_plate IN ( SELECT lisence_plate FROM car WHERE (model_id IN (SELECT model_id FROM size_x WHERE model_year = 2010)))))) AND total_distance > 50
-",,24.779772758483887,winsorized
+",12,,16.896629333496094,winsorized
 52,"SELECT COUNT(passenger_id) FROM passenger WHERE (passenger_id IN (SELECT passenger_id FROM completeride WHERE (driver_id IN ( SELECT driver_id FROM driver WHERE (lisence_plate IN (SELECT lisence_plate FROM car WHERE curr_condition = 4)))))) AND fname LIKE 'a%'
-",4014.0,41.631150245666504,normal
+",13,4014.0,41.40269756317139,normal
 53,"SELECT COUNT(passenger_id) FROM passenger WHERE (passenger_id IN (SELECT passenger_id FROM completeride WHERE (driver_id IN ( SELECT driver_id FROM driver WHERE (lisence_plate IN (SELECT lisence_plate FROM car WHERE curr_condition = 4)))))) AND fname LIKE 'a%'
-",4014.5,49.0009069442749,bounded
+",13,4013.5,48.84238243103027,bounded
 54,"SELECT COUNT(passenger_id) FROM passenger WHERE (passenger_id IN (SELECT passenger_id FROM completeride WHERE (driver_id IN ( SELECT driver_id FROM driver WHERE (lisence_plate IN (SELECT lisence_plate FROM car WHERE curr_condition = 4)))))) AND fname LIKE 'a%'
-",4014.4,48.888492584228516,fastbounded
+",13,4014.3,48.934364318847656,fastbounded
 55,"SELECT COUNT(passenger_id) FROM passenger WHERE (passenger_id IN (SELECT passenger_id FROM completeride WHERE (driver_id IN ( SELECT driver_id FROM driver WHERE (lisence_plate IN (SELECT lisence_plate FROM car WHERE curr_condition = 4)))))) AND fname LIKE 'a%'
-",4013.8,48.72937202453613,winsorized
+",13,4013.9,48.80075454711914,winsorized
 56,"SELECT COUNT(driver_id) FROM (SELECT driver_id, price FROM completeride WHERE (driver_id IN (SELECT driver_id FROM driver WHERE (lisence_plate IN ( SELECT lisence_plate FROM car WHERE (model_id IN (SELECT model_id FROM size_x WHERE model_year = 2010)))))) AND total_distance > 20)AS n1 WHERE price>60
-",378.0,28.732919692993164,normal
+",14,378.0,28.70190143585205,normal
 57,"SELECT COUNT(driver_id) FROM (SELECT driver_id, price FROM completeride WHERE (driver_id IN (SELECT driver_id FROM driver WHERE (lisence_plate IN ( SELECT lisence_plate FROM car WHERE (model_id IN (SELECT model_id FROM size_x WHERE model_year = 2010)))))) AND total_distance > 20)AS n1 WHERE price>60
-",378.3,37.3302698135376,bounded
+",14,378.4,37.568116188049316,bounded
 58,"SELECT COUNT(driver_id) FROM (SELECT driver_id, price FROM completeride WHERE (driver_id IN (SELECT driver_id FROM driver WHERE (lisence_plate IN ( SELECT lisence_plate FROM car WHERE (model_id IN (SELECT model_id FROM size_x WHERE model_year = 2010)))))) AND total_distance > 20)AS n1 WHERE price>60
-",378.3,37.42687702178955,fastbounded
+",14,377.8,37.63930797576904,fastbounded
 59,"SELECT COUNT(driver_id) FROM (SELECT driver_id, price FROM completeride WHERE (driver_id IN (SELECT driver_id FROM driver WHERE (lisence_plate IN ( SELECT lisence_plate FROM car WHERE (model_id IN (SELECT model_id FROM size_x WHERE model_year = 2010)))))) AND total_distance > 20)AS n1 WHERE price>60
-",378.0,37.53955364227295,winsorized
+",14,377.9,37.58265972137451,winsorized
