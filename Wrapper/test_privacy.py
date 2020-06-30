@@ -103,53 +103,54 @@ file_path = "/".join(cwd) + "/" + sys.argv[1] + ".txt"
 file = open(file_path,'r')
 queries = file.readlines()
 
-norm = {"query":[],"result":[],"exec_time":[]}
+data = {"query" : [], "result":[],"exec_time":[],"mode":[]}
+
+'''norm = {"query":[],"result":[],"exec_time":[]}
 bound =  {"query":[],"result":[],"exec_time":[]}
 fbnded =  {"query":[],"result":[],"exec_time":[]}
-win =  {"query":[],"result":[],"exec_time":[]}
+win =  {"query":[],"result":[],"exec_time":[]}'''
 
 for i in queries:
-    norm["query"].append(i)
+    data["query"].append(i)
     normal = exec_query(i,"normal")
-    norm["result"].append(normal[0])
-    norm["exec_time"].append(normal[1])
+    data["result"].append(normal[0])
+    data["exec_time"].append(normal[1])
+    data["mode"].append("normal")
 
-    bound["query"].append(i)
+    data["query"].append(i)
     bounded = exec_query(i,"bounded")
-    bound["result"].append(bounded[0])
-    bound["exec_time"].append(bounded[1])
+    data["result"].append(bounded[0])
+    data["exec_time"].append(bounded[1])
+    data["mode"].append("bounded")
 
-    fbnded["query"].append(i)
+    data["query"].append(i)
     fastbounded = exec_query(i,"fastbounded")
-    fbnded["result"].append(fastbounded[0])
-    fbnded["exec_time"].append(fastbounded[1])
+    data["result"].append(fastbounded[0])
+    data["exec_time"].append(fastbounded[1])
+    data["mode"].append("fastbounded")
 
-    win["query"].append(i)
+    data["query"].append(i)
     winsorized = exec_query(i,"winsorized")
-    win["result"].append(winsorized[0])
-    win["exec_time"].append(winsorized[1])
+    data["result"].append(winsorized[0])
+    data["exec_time"].append(winsorized[1])
+    data["mode"].append("winsorized")
 
-df_normal = pd.DataFrame(norm)
-print("\nNORMAL\n",df_normal.head(10))
+
+df = pd.DataFrame(data)
+
+print("\nNORMAL\n",df.iloc[df.mode=="normal",:-1].head(10))
 print("\n-------------------------------------------------\n")
 
-df_bound = pd.DataFrame(bound)
-print("\nBOUNDED\n",df_bound.head(10))
+
+print("\nBOUNDED\n",df.iloc[df.mode=="bounded",:-1].head(10))
 print("\n-------------------------------------------------\n")
 
-df_fastbound = pd.DataFrame(fbnded)
-print("\nFAST BOUNDED\n",df_fastbound.head(10))
+
+print("\nFAST BOUNDED\n",df.iloc[df.mode=="fastbounded",:-1].head(10))
 print("\n-------------------------------------------------\n")
 
-df_winsorized = pd.DataFrame(win)
-print("\nWIDENED WINSORIZED\n",df_winsorized.head(10))
+
+print("\nWIDENED WINSORIZED\n",df.iloc[df.mode=="winsorized",:-1].head(10))
 print("\n-------------------------------------------------\n")
 
 file.close()
-
-df_normal.join(df_bound.set_index("query"),"query",)
-df_normal.join(df_fastbound.set_index("query"),"query")
-df_normal.join(df_winsorized.set_index("query"),"query")
-print("\n\n\n--------------------------------------------------------")
-print(df_normal.head())
-#privacy("uber","select avg(total_distance) from completeride","winsorized")
