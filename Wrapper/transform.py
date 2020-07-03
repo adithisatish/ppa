@@ -49,20 +49,13 @@ def winsorized(query,dtype):
 			return lst[0]+"anon_"+dtype+"("+lst[1]
 
 		att = lst[1].split(")")
-		#print(att)
-		temp = (att[1]).lower().split("from ",1)[1]
-		table = temp
-		if "(" in temp and "group by" in temp:
-			table = (temp.split("("))[0].split(" group by")[0]
-		elif "group by" in temp:
-			table = temp.split(" group by")[0]
-		#elif 
-		print(table)
+		table = (att[1]).lower().split("from ")[1]
 
 		lowerbound = "select percentile_cont(0.15) within group(order by " + att[0] + ") from " + table
 		upperbound = "select percentile_cont(0.85) within group(order by " + att[0] + ") from " + table
 
-		tquery = lst[0] + "anon_" + dtype + "_with_bounds(" + att[0] + ",(" + lowerbound + "),(" + upperbound + ")) from " + temp
+		tquery = lst[0] + "anon_" + dtype + "_with_bounds(" + att[0] + ",(" + lowerbound + "),(" + upperbound + ")) from " + table
 		return tquery
 
 	return query
+
