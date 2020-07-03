@@ -1,0 +1,17 @@
+,query,query_id,result,exec_time,mode
+0,"SELECT model_name FROM size_x JOIN (SELECT model_id FROM car JOIN (SELECT lisence_plate FROM driver JOIN (SELECT driver_id FROM completeride GROUP BY driver_id ORDER BY COUNT(driver_id) DESC LIMIT 1) AS m_cr ON driver.driver_id = m_cr.driver_id) AS m_d ON car.lisence_plate=m_d.lisence_plate) AS m_c ON size_x.model_id=m_c.model_id
+",0,Maruti Suzuki Swift,29.879474639892578,normal
+1,"SELECT model_name FROM size_x JOIN (SELECT model_id FROM car JOIN (SELECT lisence_plate FROM driver JOIN (SELECT driver_id FROM completeride GROUP BY driver_id ORDER BY COUNT(driver_id) DESC LIMIT 1) AS m_cr ON driver.driver_id = m_cr.driver_id) AS m_d ON car.lisence_plate=m_d.lisence_plate) AS m_c ON size_x.model_id=m_c.model_id
+",0,,29.605412483215332,bounded
+2,"SELECT model_name FROM size_x JOIN (SELECT model_id FROM car JOIN (SELECT lisence_plate FROM driver JOIN (SELECT driver_id FROM completeride GROUP BY driver_id ORDER BY COUNT(driver_id) DESC LIMIT 1) AS m_cr ON driver.driver_id = m_cr.driver_id) AS m_d ON car.lisence_plate=m_d.lisence_plate) AS m_c ON size_x.model_id=m_c.model_id
+",0,,29.756736755371094,fastbounded
+3,"SELECT model_name FROM size_x JOIN (SELECT model_id FROM car JOIN (SELECT lisence_plate FROM driver JOIN (SELECT driver_id FROM completeride GROUP BY driver_id ORDER BY COUNT(driver_id) DESC LIMIT 1) AS m_cr ON driver.driver_id = m_cr.driver_id) AS m_d ON car.lisence_plate=m_d.lisence_plate) AS m_c ON size_x.model_id=m_c.model_id
+",0,,29.656553268432617,winsorized
+4,"SELECT fname FROM passenger JOIN (SELECT passenger_id FROM (SELECT passenger_id, sum(price) as sum_p from completeride group by passenger_id order by sum(price) desc ) AS s_p JOIN (SELECT MAX(sum_p) as max_p FROM (SELECT passenger_id, sum(price) as sum_p from completeride group by passenger_id order by sum(price) desc ) AS m) AS m_pr ON s_p.sum_p = m_pr.max_p) AS p_id ON passenger.passenger_id=p_id.passenger_id
+",1,arwin,89.9686336517334,normal
+5,"SELECT fname FROM passenger JOIN (SELECT passenger_id FROM (SELECT passenger_id, sum(price) as sum_p from completeride group by passenger_id order by sum(price) desc ) AS s_p JOIN (SELECT MAX(sum_p) as max_p FROM (SELECT passenger_id, sum(price) as sum_p from completeride group by passenger_id order by sum(price) desc ) AS m) AS m_pr ON s_p.sum_p = m_pr.max_p) AS p_id ON passenger.passenger_id=p_id.passenger_id
+",1,,89.6174669265747,bounded
+6,"SELECT fname FROM passenger JOIN (SELECT passenger_id FROM (SELECT passenger_id, sum(price) as sum_p from completeride group by passenger_id order by sum(price) desc ) AS s_p JOIN (SELECT MAX(sum_p) as max_p FROM (SELECT passenger_id, sum(price) as sum_p from completeride group by passenger_id order by sum(price) desc ) AS m) AS m_pr ON s_p.sum_p = m_pr.max_p) AS p_id ON passenger.passenger_id=p_id.passenger_id
+",1,,89.93222713470459,fastbounded
+7,"SELECT fname FROM passenger JOIN (SELECT passenger_id FROM (SELECT passenger_id, sum(price) as sum_p from completeride group by passenger_id order by sum(price) desc ) AS s_p JOIN (SELECT MAX(sum_p) as max_p FROM (SELECT passenger_id, sum(price) as sum_p from completeride group by passenger_id order by sum(price) desc ) AS m) AS m_pr ON s_p.sum_p = m_pr.max_p) AS p_id ON passenger.passenger_id=p_id.passenger_id
+",1,,90.01667499542236,winsorized
