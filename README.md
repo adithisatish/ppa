@@ -32,7 +32,7 @@ Evaluation of Google's differential privacy tool, along with the modifications m
 - To run a normal query:
     ```python3 Privacy.py <database name> "<Query without the ';' at the end>"```
 - To run the test script:
-    ```python3 test_privacy.py "<test input file that has all the queries>"
+    ```python3 test_privacy.py "<test input file that has all the queries>"```
 - To run the modified WWM file:
     ```python3 privacy_wwm.py <database name> "<Query without the ';' at the end>"```
 
