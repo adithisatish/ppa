@@ -1,4 +1,4 @@
-# PPA - Privacy Preserving Analytics
+# Privacy Preservation Analytics
 Evaluation of Google's differential privacy tool, along with the modifications made, on a real world database.
 
 -> A basic, non-technical introduction to PPA and differential privacy: https://desfontain.es/privacy/differential-privacy-awesomeness.html
